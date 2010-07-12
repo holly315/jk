@@ -51,8 +51,7 @@
                                     <label for="pass"><g:message code="account.pass.label" default="Pass" /></label>
                                 </td>
                                 <td valign="top" class="value ${hasErrors(bean: accountInstance, field: 'pass', 'errors')}">
-								<!--<g:textField name="pass" maxlength="40" value="${accountInstance?.pass}" />-->
-								<input type="password" name="pass" maxlength="40" value="${accountInstance?.pass}">
+                                    <g:textField name="pass" maxlength="40" value="${accountInstance?.pass}" />
                                 </td>
                             </tr>
                         
@@ -107,6 +106,15 @@
                                 </td>
                                 <td valign="top" class="value ${hasErrors(bean: accountInstance, field: 'deadflg', 'errors')}">
                                     <g:checkBox name="deadflg" value="${accountInstance?.deadflg}" />
+                                </td>
+                            </tr>
+                        
+                            <tr class="prop">
+                                <td valign="top" class="name">
+                                    <label for="log"><g:message code="account.log.label" default="Log" /></label>
+                                </td>
+                                <td valign="top" class="value ${hasErrors(bean: accountInstance, field: 'log', 'errors')}">
+                                    <g:textField name="log" value="${accountInstance?.log}" />
                                 </td>
                             </tr>
                         

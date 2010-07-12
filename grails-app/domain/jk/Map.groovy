@@ -14,11 +14,9 @@ class Map {
 	int objectId
 	
     static constraints = {
-	x(range:1..5)
-	y(range:1..5)
+	x(range:1..4)
+	y(range:1..4)
 	object(blank:false)
-	objectId(min:1)
+	objectId(min:0)
     }
 }
-
-

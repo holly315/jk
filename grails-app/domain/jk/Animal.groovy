@@ -14,7 +14,7 @@ class Animal {
     static constraints = {
     }
 	String toString(){
-		return name
+		return name + " : " + id
 	}
 
 }

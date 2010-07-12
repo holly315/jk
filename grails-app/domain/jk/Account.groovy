@@ -22,14 +22,17 @@ static belongsTo = [animal:Animal]
 	int lost
 /** 生死 */
 	boolean deadflg
+/** ログ */
+	String log
 	
     static constraints = {
-		name(blank:false,maxSize:40)
+		name(blank:false,maxSize:40,unique:true)
 		email(email:true)
 		pass(blank:false,maxSize:40)
 		esa(max:3,min:0)
 		hp(max:100,min:0)
 		won(min:0)
 		lost(min:0)
+		log()
     }
 }

@@ -92,6 +92,13 @@
                             
                         </tr>
                     
+                        <tr class="prop">
+                            <td valign="top" class="name"><g:message code="account.log.label" default="Log" /></td>
+                            
+                            <td valign="top" class="value">${fieldValue(bean: accountInstance, field: "log")}</td>
+                            
+                        </tr>
+                    
                     </tbody>
                 </table>
             </div>

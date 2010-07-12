@@ -112,6 +112,15 @@
                                 </td>
                             </tr>
                         
+                            <tr class="prop">
+                                <td valign="top" class="name">
+                                  <label for="log"><g:message code="account.log.label" default="Log" /></label>
+                                </td>
+                                <td valign="top" class="value ${hasErrors(bean: accountInstance, field: 'log', 'errors')}">
+                                    <g:textField name="log" value="${accountInstance?.log}" />
+                                </td>
+                            </tr>
+                        
                         </tbody>
                     </table>
                 </div>

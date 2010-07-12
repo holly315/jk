@@ -8,5 +8,7 @@ class Battle {
 	int revise
 
     static constraints = {
+	toId(min:1)
+	revise(matches:"\\d+")
     }
 }
