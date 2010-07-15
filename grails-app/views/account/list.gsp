@@ -61,7 +61,13 @@
 		<g:hiddenField name="myId" value="1"/>
 		<g:hiddenField name="enemyId" value="2"/>
  <span class="button"><g:submitButton name="create" value="${message(code: 'default.button.battle.label', default: 'Encount')}" /></span>
-</g:form>
+ </g:form>
+ 
+<g:link controller="map" action="home" id="1">アカウントID　1</g:link><br>
+<g:link controller="map" action="home" id="2">アカウントID　2</g:link><br>
+<g:link controller="map" action="home" id="3">アカウントID　3</g:link><br>
+
+ 
             <div class="paginateButtons">
                 <g:paginate total="${accountInstanceTotal}" />
             </div>

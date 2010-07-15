@@ -21,11 +21,7 @@
 	<%
 		String animal1 = accountInstance.animal.name
 		String animal2 = accountInstance2.animal.name
-		int myId = accountInstance.hp
-		int enemyId = accountInstance2.hp
 		int hande = 0
-		int niku1 = accountInstance.esa
-		int niku2 = accountInstance2.esa
 			
 			switch(animal1){
 				case("鹿"):
