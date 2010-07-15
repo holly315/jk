@@ -13,6 +13,7 @@
             <span class="menuButton"><g:link class="create" action="create"><g:message code="default.new.label" args="[entityName]" /></g:link></span>
         </div>
         <div class="body">
+<g:form action="encount" controller="map" method="post" >
             <h1><g:message code="default.list.label" args="[entityName]" /></h1>
             <g:if test="${flash.message}">
             <div class="message">${flash.message}</div>
@@ -57,6 +58,10 @@
                     </tbody>
                 </table>
             </div>
+		<g:hiddenField name="myId" value="1"/>
+		<g:hiddenField name="enemyId" value="2"/>
+ <span class="button"><g:submitButton name="create" value="${message(code: 'default.button.battle.label', default: 'Encount')}" /></span>
+</g:form>
             <div class="paginateButtons">
                 <g:paginate total="${accountInstanceTotal}" />
             </div>
