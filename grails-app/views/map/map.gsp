@@ -29,13 +29,15 @@
 			x = ${mapInstance.x}<br>
 			y = ${mapInstance.y}<br>
 			-->
+			<img src="/jk/images/jk/chikeizu.png" align="right" alt="animal" height="200" width="200" border="0" />
 			
 			現在エリア　${mypos}<br>
 			えさエリア　${esapos}<br>
 			
 			
 			<g:link action="home" id="${accountInstance.id}"><font size="+1">巣へ戻る</font></g:link><br>
-			
+			<table>
+			<td>
 			<g:form action="move">
 			<g:hiddenField name="id" value="${accountInstance.id}" />
 			<g:hiddenField name="log" value="北" />
@@ -43,6 +45,8 @@
 			<g:hiddenField name="y" value="3" />
 			<g:submitButton name="北" value="北" />
 			</g:form>
+			</td>
+			<td>
 			
 			<g:form action="move">
 			<g:hiddenField name="id" value="${accountInstance.id}" />
@@ -51,6 +55,8 @@
 			<g:hiddenField name="y" value="1" />
 			<g:submitButton name="南" value="南" />
 			</g:form>
+			</td>
+			<td>
 			
 			<g:form action="move">
 			<g:hiddenField name="id" value="${accountInstance.id}" />
@@ -59,6 +65,8 @@
 			<g:hiddenField name="y" value="0" />
 			<g:submitButton name="東" value="東" />
 			</g:form>
+			</td>
+			<td>
 			
 			<g:form action="move">
 			<g:hiddenField name="id" value="${accountInstance.id}" />
@@ -67,10 +75,11 @@
 			<g:hiddenField name="y" value="0" />
 			<g:submitButton name="西" value="西" />
 			</g:form>
-			
+			</td>
+			</table>
 			<g:link action="eat" id="${accountInstance.id}"><font size="+1">餌を食べる</font></g:link>
 			
-			
+			<img src="/jk/images/jk/${accountInstance.animal.img}" alt="animal" height="240" width="240" border="0" />
 			
 			<p>体力　${accountInstance.hp} ％</p>
 			<g:if test="${accountInstance.hp >= 50}">
@@ -84,12 +93,14 @@
 			</g:if>
 			<p>えさ　
 				<g:repeat times="${accountInstance.esa}">
-				＊
+				<img src="/jk/images/jk/esa.jpg" alt="animal" height="40" width="60" border="0" />
 				</g:repeat>
 			</p>
 			
+			<div  align="right">
 			<br>ログ<br>
-			<font size="-1" color="#999999">${accountInstance.log}</font>
+			<font face="monospace" size="-1" color="#999999">${accountInstance.log}</font>
+			</div>
 			
 			
         </div>

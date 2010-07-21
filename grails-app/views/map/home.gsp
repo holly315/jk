@@ -22,6 +22,9 @@
 			
 			<g:link action="map" id="${accountInstance.id}"><font size="+1">外へ出る</font></g:link>
 			
+			<img src="/jk/images/jk/${accountInstance.animal.img}" alt="animal" height="240" width="240" border="0" />
+
+			
 			
 			<p>体力　${accountInstance.hp} ％</p>
 			<g:if test="${accountInstance.hp >= 50}">
@@ -35,13 +38,14 @@
 			</g:if>
 			<p>えさ　
 				<g:repeat times="${accountInstance.esa}">
-				＊
+				<img src="/jk/images/jk/esa.jpg" alt="animal" height="40" width="60" border="0" />
 				</g:repeat>
 			</p>
 			
+			<div  align="right">
 			<br>ログ<br>
-			<font size="-1" color="#999999">${accountInstance.log}</font>
-			
+			<font face="平成角ゴシック, ＭＳ ゴシック, monospace" size="-1" color="#999999">${accountInstance.log}</font>
+			</div>
 			
         </div>
     </body>

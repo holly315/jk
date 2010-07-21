@@ -1,9 +1,42 @@
 package jk
 
 class MapController {
-
     static allowedMethods = [save: "POST", update: "POST", delete: "POST"]
-	
+	def ranking = {
+		def allInstance
+		def title = params.dflg + "ランキング"
+		def num
+		switch (params.dflg) {
+		case "歴代勝利数":
+			num = Account.count()
+			allInstance = Account.getAll().sort{ r, l -> l.won <=> r.won }
+			break
+		case "歴代勝率":
+			num = Account.count()
+			allInstance = Account.getAll().sort{ r, l -> (l.won / (l.won + l.lost)) <=> (r.won / (r.won + r.lost)) }
+			break
+		case "生存者勝率":
+			num = Account.findAllWhere(deadflg:true).count()
+			allInstance = Account.findAllWhere(deadflg:true).sort{ r, l -> (l.won / (l.won + l.lost)) <=> (r.won / (r.won + r.lost)) }
+			break
+		default:
+			num = Account.findAllWhere(deadflg:true).count()
+			title = "生存者勝利数ランキング"
+			allInstance = Account.findAllWhere(deadflg:true).sort{ r, l -> l.won <=> r.won }
+			break
+		}
+		if (!allInstance) {
+			flash.message = "${message(code: 'default.not.found.message', args: [message(code: 'account.label', default: 'Account'), params.id])}"
+			redirect(action: "index")
+		}
+		[allInstance:allInstance, title:title, num:num]
+/*	
+    def list = {
+        params.max = Math.min(params.max ? params.int('max') : 10, 100)
+        [mapInstanceList: Map.list(params), mapInstanceTotal: Map.count()]
+    }
+*/
+	}
     def home = {
         def accountInstance = Account.get(params.id)
         if (!accountInstance) {
@@ -68,15 +101,15 @@ class MapController {
             def esapos
             if(mapInstance.x < 3) {
                 if(mapInstance.y < 3) {
-                    esapos = "山"
+                    esapos = "山岳"
                 } else {
-                    esapos = "川"
+                    esapos = "森林"
                 }
             } else {
                 if(mapInstance.y < 3) {
-                    esapos = "森"
-                } else {
                     esapos = "草原"
+                } else {
+                    esapos = "川"
                 }
             }
             
@@ -97,15 +130,15 @@ class MapController {
             def mypos
             if(mapInstance2.x < 3) {
                 if(mapInstance2.y < 3) {
-                    mypos = "山"
+                    mypos = "山岳"
                 } else {
-                    mypos = "川"
+                    mypos = "森林"
                 }
             } else {
                 if(mapInstance2.y < 3) {
-                    mypos = "森"
-                } else {
                     mypos = "草原"
+                } else {
+                    mypos = "川"
                 }
             }
             accountInstance.save(flush: true)
@@ -142,7 +175,7 @@ class MapController {
 				redirect(action:"encount",params:[myId:mapInstance.objectId, enemyId:mapInstance2.objectId])
             } else if (mapInstance2.object == "esa") {
                 accountInstance.esa = (accountInstance.esa == 3)?(3):(accountInstance.esa + 1)
-                accountInstance.log += date + "|えさを発見しました！<br>"
+                accountInstance.log += "<font color='red'>" + date + "|えさを発見しました！<br></font>"
                 mapInstance2.delete()
                 accountInstance.save(flush: true)
                 redirect(action: "map", id: params.id)
@@ -153,7 +186,7 @@ class MapController {
             
             if(0 == Math.floor(Math.random()*20).toInteger()) {
                 accountInstance.hp -= 25
-                accountInstance.log += date + "|罠にかかった！<br>"
+                accountInstance.log += "<font color='blue'>" + date + "|罠にかかった！<br></font>"
             }
             accountInstance.hp = (accountInstance.hp < 0)?(0):(accountInstance.hp)
 
@@ -175,7 +208,7 @@ class MapController {
             accountInstance.hp = 100
             accountInstance.log += date + "|えさを使いました<br>"
         } else {
-            accountInstance.log += date + "|えさが足りない！<br>"
+            accountInstance.log += "<font color='blue'>" + date + "|えさが足りない！<br></font>"
         }
         accountInstance.save(flush: true)
         redirect(action: "map", id: params.id)
@@ -198,44 +231,44 @@ class MapController {
 								if(hako == accountInstance2.hp){
 									accountInstance.lost++
 									accountInstance2.lost++
-									accountInstance.log += date + "|${accountInstance2.name}と引き分けました<br>"
-									accountInstance2.log += date + "|${accountInstance.name}と引き分けました<br>"
+									accountInstance.log += "<font color='blue'>" + date + "|${accountInstance2.name}と引き分けました<br></font>"
+									accountInstance2.log += "<font color='blue'>" + date + "|${accountInstance.name}と引き分けました<br></font>"
 										if(accountInstance.esa != 0){
 											accountInstance.esa--
 											}else{
-											accountInstance.deadflg = true
+											accountInstance.deadflg = false
 											}
 											if(accountInstance2.esa != 0){
 												accountInstance2.esa--
 												}else{
-												accountInstance2.deadflg = true
+												accountInstance2.deadflg = false
 												}
 									
 								}else if(hako > accountInstance2.hp){
 									accountInstance.won++
 									accountInstance2.lost++
-									accountInstance.log += date + "|${accountInstance2.name}との戦闘に勝利しました<br>"
-									accountInstance2.log += date + "|${accountInstance.name}との戦闘に敗北しました<br>"
+									accountInstance.log += "<font color='red'>" + date + "|${accountInstance2.name}との戦闘に勝利しました<br></font>"
+									accountInstance2.log += "<font color='blue'>" + date + "|${accountInstance.name}との戦闘に敗北しました<br></font>"
 										if(accountInstance.esa !=3){
 											accountInstance.esa++
 										}
 										if(accountInstance2.esa != 0){
 											accountInstance2.esa--
 											}else{
-											accountInstance2.deadflg = true
+											accountInstance2.deadflg = false
 											}
 								}else if(hako < accountInstance2.hp){
 									accountInstance2.won++
 									accountInstance.lost++
-									accountInstance.log += date + "|${accountInstance2.name}との戦闘に敗北しました<br>"
-									accountInstance2.log += date + "|${accountInstance.name}との戦闘に勝利しました<br>"
+									accountInstance.log += "<font color='blue'>" + date + "|${accountInstance2.name}との戦闘に敗北しました<br></font>"
+									accountInstance2.log += "<font color='red'>" + date + "|${accountInstance.name}との戦闘に勝利しました<br></font>"
 										if(accountInstance2.esa != 3){
 											accountInstance2.esa++
 										}
 										if(accountInstance.esa != 0){
 											accountInstance.esa--
 											}else{
-											accountInstance.deadflg = true
+											accountInstance.deadflg = false
 											}
 								}
 								
