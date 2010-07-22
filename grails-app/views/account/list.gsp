@@ -66,6 +66,7 @@
 <g:link controller="map" action="home" id="1">アカウントID　1</g:link><br>
 <g:link controller="map" action="home" id="2">アカウントID　2</g:link><br>
 <g:link controller="map" action="home" id="3">アカウントID　3</g:link><br>
+<g:link controller="map" action="home" id="4">アカウントID　4</g:link><br>
 
  
             <div class="paginateButtons">

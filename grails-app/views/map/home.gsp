@@ -22,7 +22,7 @@
 			
 			<g:link action="map" id="${accountInstance.id}"><font size="+1">外へ出る</font></g:link>
 			
-			<img src="/jk/images/jk/${accountInstance.animal.img}" alt="animal" height="240" width="240" border="0" />
+			<img src="/jk/images/${accountInstance.animal.img}" alt="animal" height="240" width="240" border="0" />
 
 			
 			
@@ -38,7 +38,7 @@
 			</g:if>
 			<p>えさ　
 				<g:repeat times="${accountInstance.esa}">
-				<img src="/jk/images/jk/esa.jpg" alt="animal" height="40" width="60" border="0" />
+				<img src="/jk/images/esa.jpg" alt="animal" height="40" width="60" border="0" />
 				</g:repeat>
 			</p>
 			
