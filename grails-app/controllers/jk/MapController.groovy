@@ -1,44 +1,59 @@
 package jk
 
+import org.springframework.security.ui.AbstractProcessingFilter
+import org.springframework.security.ui.webapp.AuthenticationProcessingFilter
+
+
 class MapController {
     static allowedMethods = [save: "POST", update: "POST", delete: "POST"]
-	def ranking = {
-		def allInstance
-		def title = params.dflg + "ランキング"
-		def num
-		switch (params.dflg) {
-		case "歴代勝利数":
-			num = Account.count()
-			allInstance = Account.getAll().sort{ r, l -> l.won <=> r.won }
-			break
-		case "歴代勝率":
-			num = Account.count()
-			allInstance = Account.getAll().sort{ r, l -> (l.won / (l.won + l.lost)) <=> (r.won / (r.won + r.lost)) }
-			break
-		case "生存者勝率":
-			num = Account.findAllWhere(deadflg:true).count()
-			allInstance = Account.findAllWhere(deadflg:true).sort{ r, l -> (l.won / (l.won + l.lost)) <=> (r.won / (r.won + r.lost)) }
-			break
-		default:
-			num = Account.findAllWhere(deadflg:true).count()
-			title = "生存者勝利数ランキング"
-			allInstance = Account.findAllWhere(deadflg:true).sort{ r, l -> l.won <=> r.won }
-			break
-		}
-		if (!allInstance) {
-			flash.message = "${message(code: 'default.not.found.message', args: [message(code: 'account.label', default: 'Account'), params.id])}"
-			redirect(action: "index")
-		}
-		[allInstance:allInstance, title:title, num:num]
-/*	
+    def ranking = {
+        def allInstance
+        def title = params.dflg + "ランキング"
+        def num
+        switch (params.dflg) {
+        case "歴代勝利数":
+            num = Account.count()
+            allInstance = Account.getAll().sort{ r, l -> l.won <=> r.won }
+            break
+        case "歴代勝率":
+            num = Account.count()
+            allInstance = Account.getAll().sort{ r, l -> (l.won / (l.won + l.lost)) <=> (r.won / (r.won + r.lost)) }
+            break
+        case "生存者勝率":
+            num = Account.findAllWhere(deadflg:true).count()
+            allInstance = Account.findAllWhere(deadflg:true).sort{ r, l -> (l.won / (l.won + l.lost)) <=> (r.won / (r.won + r.lost)) }
+            break
+        default:
+            num = Account.findAllWhere(deadflg:true).count()
+            title = "生存者勝利数ランキング"
+            allInstance = Account.findAllWhere(deadflg:true).sort{ r, l -> l.won <=> r.won }
+            break
+        }
+        if (!allInstance) {
+            flash.message = "${message(code: 'default.not.found.message', args: [message(code: 'account.label', default: 'Account'), params.id])}"
+            redirect(action: "index")
+        }
+        [allInstance:allInstance, title:title, num:num]
+/*    
     def list = {
         params.max = Math.min(params.max ? params.int('max') : 10, 100)
         [mapInstanceList: Map.list(params), mapInstanceTotal: Map.count()]
     }
 */
-	}
+    }
+    
+    def meta = {
+        def username = session[AuthenticationProcessingFilter.SPRING_SECURITY_LAST_USERNAME_KEY]
+//        println username
+  //      println Account.findByName(username)
+        def accountInstance = Account.findByName(username)
+                redirect(action:"home",params:[id:accountInstance.id])
+        
+    }
+    
     def home = {
         def accountInstance = Account.get(params.id)
+        println accountInstance
         if (!accountInstance) {
             flash.message = "${message(code: 'default.not.found.message', args: [message(code: 'account.label', default: 'Account'), params.id])}"
             redirect(action: "index")
@@ -59,9 +74,9 @@ class MapController {
                 }
                 index += 4
             }
-			if(accountInstance.log) {
-	            accountInstance.log = accountInstance.log.getAt(index..-1)
-			}
+            if(accountInstance.log) {
+                accountInstance.log = accountInstance.log.getAt(index..-1)
+            }
             [accountInstance: accountInstance]
         }
     }
@@ -82,9 +97,9 @@ class MapController {
                 }
                 index += 4
             }
-			if(accountInstance.log) {
-	            accountInstance.log = accountInstance.log.getAt(index..-1)
-			}
+            if(accountInstance.log) {
+                accountInstance.log = accountInstance.log.getAt(index..-1)
+            }
             //餌がなくなっていた場合に餌を追加
             def mapInstance = Map.findByObject("esa")
             if (!mapInstance) {
@@ -172,7 +187,7 @@ class MapController {
             mapInstance.save(flush: true)
             if(mapInstance2.object == "Account" && mapInstance2.x != 0 && mapInstance2.y != 0) {
                 accountInstance.save(flush: true)
-				redirect(action:"encount",params:[myId:mapInstance.objectId, enemyId:mapInstance2.objectId])
+                redirect(action:"encount",params:[myId:mapInstance.objectId, enemyId:mapInstance2.objectId])
             } else if (mapInstance2.object == "esa") {
                 accountInstance.esa = (accountInstance.esa == 3)?(3):(accountInstance.esa + 1)
                 accountInstance.log += "<font color='red'>" + date + "|えさを発見しました！<br></font>"
@@ -214,10 +229,10 @@ class MapController {
         redirect(action: "map", id: params.id)
     }
 
-	def kekka = {
-	 def accountInstance = Account.get(params.myId)
-		def accountInstance2 = Account.get(params.enemyId)
-		
+    def kekka = {
+     def accountInstance = Account.get(params.myId)
+        def accountInstance2 = Account.get(params.enemyId)
+        
         if (!(accountInstance && accountInstance2) ) {
             flash.message = "${message(code: 'default.not.found.message', args: [message(code: 'map.label', default: 'Map'), params.id])}"
             redirect(action: "list")
@@ -226,195 +241,195 @@ class MapController {
             [accountInstance: accountInstance,accountInstance2:accountInstance2]
         }
 
-		
-		if(!accountInstance.deadflg){
-			render(view: "dead", params: params , model:[accountInstance: accountInstance,accountInstance2:accountInstance2])
-			}else if(params.int('hako') == params.int('hantei2')){
-											render(view: "draw", params: params , model:[accountInstance:	accountInstance,accountInstance2:accountInstance2,hande:params.hande,,hantei1:params.hantei1,hantei2:params.hantei2])
-										}else if(params.int('hako') > params.int('hantei2')){
-											render(view: "win", params: params , model:[accountInstance: accountInstance,accountInstance2:accountInstance2,hande:params.hande,hantei1:params.hantei1,hantei2:params.hantei2])
-										}else {
-											render(view: "lose", params: params , model:[accountInstance: accountInstance,accountInstance2:accountInstance2,hande:params.hande,hantei1:params.hantei1,hantei2:params.hantei2])
-									}
-		}
-	
-	def encount = {
-				
-		   
-				def date = new Date().toString()
-				def accountInstance = Account.get(params.myId)
-				def accountInstance2 = Account.get(params.enemyId)
-				int hako
-				if (!accountInstance && accountInstance2) {
-								flash.message = "${message(code: 'default.not.found.message', args: [message(code: 'map.label', default: 'Map'), params.id])}"
-						            redirect(action: "list")
-						        }
-							else {
-							[accountInstance: accountInstance,accountInstance2:accountInstance2]
-						        }
-						
-							String animal1 = accountInstance.animal.name
-							String animal2 = accountInstance2.animal.name
-							int hande = 0
+        
+        if(!accountInstance.deadflg){
+            render(view: "dead", params: params , model:[accountInstance: accountInstance,accountInstance2:accountInstance2])
+            }else if(params.int('hako') == params.int('hantei2')){
+                                            render(view: "draw", params: params , model:[accountInstance:    accountInstance,accountInstance2:accountInstance2,hande:params.hande,,hantei1:params.hantei1,hantei2:params.hantei2])
+                                        }else if(params.int('hako') > params.int('hantei2')){
+                                            render(view: "win", params: params , model:[accountInstance: accountInstance,accountInstance2:accountInstance2,hande:params.hande,hantei1:params.hantei1,hantei2:params.hantei2])
+                                        }else {
+                                            render(view: "lose", params: params , model:[accountInstance: accountInstance,accountInstance2:accountInstance2,hande:params.hande,hantei1:params.hantei1,hantei2:params.hantei2])
+                                    }
+        }
+    
+    def encount = {
+                
+           
+                def date = new Date().toString()
+                def accountInstance = Account.get(params.myId)
+                def accountInstance2 = Account.get(params.enemyId)
+                int hako
+                if (!accountInstance && accountInstance2) {
+                                flash.message = "${message(code: 'default.not.found.message', args: [message(code: 'map.label', default: 'Map'), params.id])}"
+                                    redirect(action: "list")
+                                }
+                            else {
+                            [accountInstance: accountInstance,accountInstance2:accountInstance2]
+                                }
+                        
+                            String animal1 = accountInstance.animal.name
+                            String animal2 = accountInstance2.animal.name
+                            int hande = 0
 
-										switch(animal1){
-											case("鹿"):
-												switch(animal2){
-													case("熊"):	
-														hande +=5
-														break
-													case("虎"):	
-														hande -=5
-														break
-													default:
-													 	break
-												}
-												break
-											case("兎"):
-												switch(animal2){
-													case("虎"):	
-														hande +=5
-														break
-													case("熊"):
-														hande +=10
-														break
-													case("猫"):
-														hande -=25
-														break
-													default:
-													 	break
-												}
-												break
-											case("虎"):
-												switch(animal2){
-													case("鹿"):	
-														hande +=5
-														break
-													case("兎"):	
-														hande -=5
-														break
-													case("熊"):
-														hande -=5
-														break
-													case("猫"):
-														hande +=10
-														break
-													default:
-														break
-												}
-												break	
-											case("熊"):
-												switch(animal2){
-													case("鹿"):	
-														hande -=5
-														break
-													case("兎"):	
-														hande -=10
-														break
-													case("虎"):	
-														hande +=5
-														break
-													case("猫"):
-														hande +=10
-														break
-													default:
-													 	break
-												}
-												break
-											case("猫"):
-												switch(animal2){
-													case("兎"):	
-														hande +=25
-														break
-													case("虎"):	
-														hande -=10
-														break
-													case("熊"):
-														hande -=10
-														break
-													default:
-													 	break
-												}
-												break
-										}
+                                        switch(animal1){
+                                            case("鹿"):
+                                                switch(animal2){
+                                                    case("熊"):    
+                                                        hande +=5
+                                                        break
+                                                    case("虎"):    
+                                                        hande -=5
+                                                        break
+                                                    default:
+                                                         break
+                                                }
+                                                break
+                                            case("兎"):
+                                                switch(animal2){
+                                                    case("虎"):    
+                                                        hande +=5
+                                                        break
+                                                    case("熊"):
+                                                        hande +=10
+                                                        break
+                                                    case("猫"):
+                                                        hande -=25
+                                                        break
+                                                    default:
+                                                         break
+                                                }
+                                                break
+                                            case("虎"):
+                                                switch(animal2){
+                                                    case("鹿"):    
+                                                        hande +=5
+                                                        break
+                                                    case("兎"):    
+                                                        hande -=5
+                                                        break
+                                                    case("熊"):
+                                                        hande -=5
+                                                        break
+                                                    case("猫"):
+                                                        hande +=10
+                                                        break
+                                                    default:
+                                                        break
+                                                }
+                                                break    
+                                            case("熊"):
+                                                switch(animal2){
+                                                    case("鹿"):    
+                                                        hande -=5
+                                                        break
+                                                    case("兎"):    
+                                                        hande -=10
+                                                        break
+                                                    case("虎"):    
+                                                        hande +=5
+                                                        break
+                                                    case("猫"):
+                                                        hande +=10
+                                                        break
+                                                    default:
+                                                         break
+                                                }
+                                                break
+                                            case("猫"):
+                                                switch(animal2){
+                                                    case("兎"):    
+                                                        hande +=25
+                                                        break
+                                                    case("虎"):    
+                                                        hande -=10
+                                                        break
+                                                    case("熊"):
+                                                        hande -=10
+                                                        break
+                                                    default:
+                                                         break
+                                                }
+                                                break
+                                        }
 
-								hako = accountInstance.hp + hande + 10
-									if(hako == accountInstance2.hp){
-										accountInstance.lost++
-										accountInstance2.lost++
-										accountInstance.log += date + "|${accountInstance2.name}と引き分けました<br>"
-										accountInstance2.log += date + "|${accountInstance.name}と引き分けました<br>"
-											if(accountInstance.esa != 0){
-												accountInstance.esa--
-												}else{
-												accountInstance.deadflg = false
-												}
-												if(accountInstance2.esa != 0){
-													accountInstance2.esa--
-													}else{
-													accountInstance2.deadflg = false
-													}
+                                hako = accountInstance.hp + hande + 10
+                                    if(hako == accountInstance2.hp){
+                                        accountInstance.lost++
+                                        accountInstance2.lost++
+                                        accountInstance.log += date + "|${accountInstance2.name}と引き分けました<br>"
+                                        accountInstance2.log += date + "|${accountInstance.name}と引き分けました<br>"
+                                            if(accountInstance.esa != 0){
+                                                accountInstance.esa--
+                                                }else{
+                                                accountInstance.deadflg = false
+                                                }
+                                                if(accountInstance2.esa != 0){
+                                                    accountInstance2.esa--
+                                                    }else{
+                                                    accountInstance2.deadflg = false
+                                                    }
 
-									}else if(hako > accountInstance2.hp){
-										accountInstance.won++
-										accountInstance2.lost++
-										accountInstance.log += date + "|${accountInstance2.name}との戦闘に勝利しました<br>"
-										accountInstance2.log += date + "|${accountInstance.name}との戦闘に敗北しました<br>"
-											if(accountInstance.esa !=3){
-												accountInstance.esa++
-											}
-											if(accountInstance2.esa != 0){
-												accountInstance2.esa--
-												}else{
-												accountInstance2.deadflg = false
-												}
-									}else if(hako < accountInstance2.hp){
-										accountInstance2.won++
-										accountInstance.lost++
-										accountInstance.log += date + "|${accountInstance2.name}との戦闘に敗北しました<br>"
-										accountInstance2.log += date + "|${accountInstance.name}との戦闘に勝利しました<br>"
-											if(accountInstance2.esa != 3){
-												accountInstance2.esa++
-											}
-											if(accountInstance.esa != 0){
-												accountInstance.esa--
-												}else{
-												accountInstance.deadflg = false
-												}
-									}
-										int hantei1
-										int hantei2
+                                    }else if(hako > accountInstance2.hp){
+                                        accountInstance.won++
+                                        accountInstance2.lost++
+                                        accountInstance.log += date + "|${accountInstance2.name}との戦闘に勝利しました<br>"
+                                        accountInstance2.log += date + "|${accountInstance.name}との戦闘に敗北しました<br>"
+                                            if(accountInstance.esa !=3){
+                                                accountInstance.esa++
+                                            }
+                                            if(accountInstance2.esa != 0){
+                                                accountInstance2.esa--
+                                                }else{
+                                                accountInstance2.deadflg = false
+                                                }
+                                    }else if(hako < accountInstance2.hp){
+                                        accountInstance2.won++
+                                        accountInstance.lost++
+                                        accountInstance.log += date + "|${accountInstance2.name}との戦闘に敗北しました<br>"
+                                        accountInstance2.log += date + "|${accountInstance.name}との戦闘に勝利しました<br>"
+                                            if(accountInstance2.esa != 3){
+                                                accountInstance2.esa++
+                                            }
+                                            if(accountInstance.esa != 0){
+                                                accountInstance.esa--
+                                                }else{
+                                                accountInstance.deadflg = false
+                                                }
+                                    }
+                                        int hantei1
+                                        int hantei2
 
 
-										if(params.int('hande') >= 0){
-												hantei1 = accountInstance.hp + hande
-												hantei2 = accountInstance2.hp
-										}else{
-												hantei2 = accountInstance2.hp - hande
-												hantei1 = accountInstance.hp	
-										}	
+                                        if(params.int('hande') >= 0){
+                                                hantei1 = accountInstance.hp + hande
+                                                hantei2 = accountInstance2.hp
+                                        }else{
+                                                hantei2 = accountInstance2.hp - hande
+                                                hantei1 = accountInstance.hp    
+                                        }    
 
-										if(hantei1 == hantei2){
-											hantei1 = accountInstance.hp
-											hantei2 = accountInstance2.hp
-											accountInstance.hp = 100
-											accountInstance2.hp = 100
-										}else if(hantei1 > hantei2){
-											hantei1 = accountInstance.hp
-											hantei2 = accountInstance2.hp
-											accountInstance2.hp = 100
-										}else if(hantei1 < hantei2){
-											hantei1 = accountInstance.hp
-											hantei2 = accountInstance2.hp
-											accountInstance.hp = 100
-										}
-										
-									render(view: "encount", params: params , model:[accountInstance: accountInstance,accountInstance2:accountInstance2,hako:hako,hande:hande,hantei1:hantei1,hantei2:hantei2])				
-					
-			}
-			
+                                        if(hantei1 == hantei2){
+                                            hantei1 = accountInstance.hp
+                                            hantei2 = accountInstance2.hp
+                                            accountInstance.hp = 100
+                                            accountInstance2.hp = 100
+                                        }else if(hantei1 > hantei2){
+                                            hantei1 = accountInstance.hp
+                                            hantei2 = accountInstance2.hp
+                                            accountInstance2.hp = 100
+                                        }else if(hantei1 < hantei2){
+                                            hantei1 = accountInstance.hp
+                                            hantei2 = accountInstance2.hp
+                                            accountInstance.hp = 100
+                                        }
+                                        
+                                    render(view: "encount", params: params , model:[accountInstance: accountInstance,accountInstance2:accountInstance2,hako:hako,hande:hande,hantei1:hantei1,hantei2:hantei2])                
+                    
+            }
+            
 
-	
+    
     def index = {
         redirect(action: "list", params: params)
     }

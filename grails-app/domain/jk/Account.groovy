@@ -1,38 +1,48 @@
 package jk
+import jk.Animal
+import jk.Authority
 
-/** ã‚¢ã‚«ã‚¦ãƒ³ãƒˆ */
+/**
+ * User domain class.
+ */
 class Account {
+    static transients = ['pass']
+    static hasMany = [authorities: Authority]
+    static belongsTo = [Authority]
 
-/** å‹•ç‰© */
-static belongsTo = [animal:Animal]
+/** –¼‘O */
+    String name
+/** ƒ[ƒ‹ƒAƒhƒŒƒX */
+    String email
+/** ƒpƒXƒ[ƒh */
+    String passwd
+/** ‰a */
+    int esa
+/** ‘Ì—Í */
+    int hp
+/** Ÿ—˜” */
+    int won
+/** ”s–k” */
+    int lost
+/** ¶€ */
+    boolean deadflg
+/** ƒƒO */
+    String log 
+    
+    //String animal    //def‚¶‚á‚¾‚ß‚Á‚Û‚¢
+    Animal animal //‚Å‚¤‚Ü‚­g‚¦‚ê‚Î‚È‚ñ‚Æ‚©c
 
-/** åå‰ */
-	String name
-/** ãƒ¡ãƒ¼ãƒ«ã‚¢ãƒ‰ãƒ¬ã‚¹ */
-	String email
-/** ãƒ‘ã‚¹ãƒ¯ãƒ¼ãƒ‰ */
-	String pass
-/** é¤Œ */
-	int esa
-/** ä½“åŠ› */
-	int hp
-/** å‹åˆ©æ•° */
-	int won
-/** æ•—åŒ—æ•° */
-	int lost
-/** ç”Ÿæ­» */
-	boolean deadflg
-/** ãƒ­ã‚° */
-	String log
-	
+    /** plain password to create a MD5 password */
+    String pass = '[secret]'
+
     static constraints = {
-		name(blank:false,maxSize:40,unique:true)
-		email(email:true)
-		pass(blank:false,maxSize:40)
-		esa(max:3,min:0)
-		hp(max:100,min:0)
-		won(min:0)
-		lost(min:0)
-		log()
+        name(blank:false,maxSize:40,unique:true)
+        email(email:true)
+        passwd(blank:false,maxSize:40)
+        esa(max:3,min:0)
+        hp(max:100,min:0)
+        won(min:0)
+        lost(min:0)
+        log()
     }
 }

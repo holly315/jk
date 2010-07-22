@@ -18,7 +18,7 @@
             </div>
             </g:hasErrors>
 			
-			ログアウト<br>
+			<g:link controller="logout">ログアウト</g:link><br>
 			
 			<g:link action="map" id="${accountInstance.id}"><font size="+1">外へ出る</font></g:link>
 			

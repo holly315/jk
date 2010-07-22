@@ -5,9 +5,17 @@
         <link rel="shortcut icon" href="${resource(dir:'images',file:'favicon.ico')}" type="image/x-icon" />
         <g:layoutHead />
         <g:javascript library="application" />
+        <style type='text/css' media='screen'>
+        h1 {
+        	font-size:30px;
+        }
+        </style>
     </head>
     <body>
-       	 
-	        <g:layoutBody />
+        <div id="spinner" class="spinner" style="display:none;">
+            <img src="${resource(dir:'images',file:'spinner.gif')}" alt="${message(code:'spinner.alt',default:'Loading...')}" />
+        </div>
+        	<h1>弱肉強食</h1>
+        <g:layoutBody />
     </body>
 </html>

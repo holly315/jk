@@ -1,0 +1,202 @@
+#
+# A fatal error has been detected by the Java Runtime Environment:
+#
+#  EXCEPTION_ACCESS_VIOLATION (0xc0000005) at pc=0x6d166ae0, pid=6456, tid=5792
+#
+# JRE version: 6.0_20-b02
+# Java VM: Java HotSpot(TM) Client VM (16.3-b01 mixed mode, sharing windows-x86 )
+# Problematic frame:
+# C  [awt.dll+0xb6ae0]
+#
+# If you would like to submit a bug report, please visit:
+#   http://java.sun.com/webapps/bugreport/crash.jsp
+# The crash happened outside the Java Virtual Machine in native code.
+# See problematic frame for where to report the bug.
+#
+
+---------------  T H R E A D  ---------------
+
+Current thread (0x06e8ec00):  JavaThread "AWT-Windows" daemon [_thread_in_native, id=5792, stack(0x08420000,0x08620000)]
+
+siginfo: ExceptionCode=0xc0000005, reading address 0x00000000
+
+Registers:
+EAX=0x0861fa78, EBX=0x06a3fbc0, ECX=0x000001f2, EDX=0x000000c0
+ESP=0x0861fa60, EBP=0x764b1450, ESI=0x00000000, EDI=0x000000c0
+EIP=0x6d166ae0, EFLAGS=0x00010206
+
+Top of Stack: (sp=0x0861fa60)
+0x0861fa60:   0861fa78 00001000 00000000 0653eba0
+0x0861fa70:   00000001 0861fa68 0861fa6c 6d15e4bd
+0x0861fa80:   00000000 00000000 0653eba0 6d15e58a
+0x0861fa90:   00000000 0653eba0 00000001 6d15e68e
+0x0861faa0:   0653eba0 6d1137c2 0680d688 00000000
+0x0861fab0:   6d1605c0 00000001 6d1b2f50 6d1b2938
+0x0861fac0:   0680d688 6d1619e2 6d1b2f48 6d161bc9
+0x0861fad0:   6d14a453 00000000 000016a0 00000000 
+
+Instructions: (pc=0x6d166ae0)
+0x6d166ad0:   05 00 20 00 00 50 c1 e2 05 8d 44 24 14 50 8b fa
+0x6d166ae0:   8b 16 57 c1 e1 05 51 56 ff 52 2c 85 c0 0f 8c 93 
+
+
+Stack: [0x08420000,0x08620000],  sp=0x0861fa60,  free space=7fe0861f544k
+Native frames: (J=compiled Java code, j=interpreted, Vv=VM code, C=native code)
+C  [awt.dll+0xb6ae0]
+
+Java frames: (J=compiled Java code, j=interpreted, Vv=VM code)
+j  sun.awt.windows.WToolkit.eventLoop()V+0
+j  sun.awt.windows.WToolkit.run()V+77
+j  java.lang.Thread.run()V+11
+v  ~StubRoutines::call_stub
+
+---------------  P R O C E S S  ---------------
+
+Java Threads: ( => current thread )
+  0x06212800 JavaThread "AWT-Shutdown" [_thread_blocked, id=6616, stack(0x0c5f0000,0x0c7f0000)]
+  0x06364400 JavaThread "Thread-1" daemon [_thread_in_native, id=2296, stack(0x0cff0000,0x0d1f0000)]
+  0x0600d000 JavaThread "DestroyJavaVM" [_thread_blocked, id=5388, stack(0x00090000,0x00290000)]
+  0x0636e400 JavaThread "TimerQueue" daemon [_thread_blocked, id=2912, stack(0x0f790000,0x0f990000)]
+=>0x06e8ec00 JavaThread "AWT-Windows" daemon [_thread_in_native, id=5792, stack(0x08420000,0x08620000)]
+  0x06e9cc00 JavaThread "Java2D Disposer" daemon [_thread_blocked, id=3904, stack(0x07fa0000,0x081a0000)]
+  0x02e08000 JavaThread "Low Memory Detector" daemon [_thread_blocked, id=1944, stack(0x05bc0000,0x05dc0000)]
+  0x02df6800 JavaThread "CompilerThread0" daemon [_thread_blocked, id=7112, stack(0x05980000,0x05b80000)]
+  0x02df5800 JavaThread "Attach Listener" daemon [_thread_blocked, id=7684, stack(0x05740000,0x05940000)]
+  0x02df2400 JavaThread "Signal Dispatcher" daemon [_thread_blocked, id=2820, stack(0x05500000,0x05700000)]
+  0x02d92000 JavaThread "Finalizer" daemon [_thread_blocked, id=6648, stack(0x05300000,0x05500000)]
+  0x02d90800 JavaThread "Reference Handler" daemon [_thread_blocked, id=5716, stack(0x05100000,0x05300000)]
+
+Other Threads:
+  0x02d8d400 VMThread [stack: 0x04f00000,0x05100000] [id=5952]
+  0x02e11000 WatcherThread [stack: 0x05e00000,0x06000000] [id=2500]
+
+VM state:not at safepoint (normal execution)
+
+VM Mutex/Monitor currently owned by a thread: None
+
+Heap
+ def new generation   total 9792K, used 7099K [0x28050000, 0x28ae0000, 0x2d5a0000)
+  eden space 8768K,  80% used [0x28050000, 0x2873efe0, 0x288e0000)
+  from space 1024K,   0% used [0x288e0000, 0x288e0000, 0x289e0000)
+  to   space 1024K,   0% used [0x289e0000, 0x289e0000, 0x28ae0000)
+ tenured generation   total 21536K, used 12921K [0x2d5a0000, 0x2eaa8000, 0x38050000)
+   the space 21536K,  59% used [0x2d5a0000, 0x2e23e468, 0x2e23e600, 0x2eaa8000)
+ compacting perm gen  total 12288K, used 8089K [0x38050000, 0x38c50000, 0x3c050000)
+   the space 12288K,  65% used [0x38050000, 0x38836700, 0x38836800, 0x38c50000)
+    ro space 10240K,  54% used [0x3c050000, 0x3c5cb760, 0x3c5cb800, 0x3ca50000)
+    rw space 12288K,  55% used [0x3ca50000, 0x3d0ef798, 0x3d0ef800, 0x3d650000)
+
+Dynamic libraries:
+0x00400000 - 0x0040f000 	C:\Program Files (x86)\Groovy\Groovy-1.7.2\bin\groovyConsole.exe
+0x77760000 - 0x778e0000 	C:\Windows\SysWOW64\ntdll.dll
+0x764a0000 - 0x765a0000 	C:\Windows\syswow64\kernel32.dll
+0x768b0000 - 0x768f6000 	C:\Windows\syswow64\KERNELBASE.dll
+0x75760000 - 0x75800000 	C:\Windows\syswow64\ADVAPI32.DLL
+0x76c00000 - 0x76cac000 	C:\Windows\syswow64\msvcrt.dll
+0x76be0000 - 0x76bf9000 	C:\Windows\SysWOW64\sechost.dll
+0x76cc0000 - 0x76db0000 	C:\Windows\syswow64\RPCRT4.dll
+0x752d0000 - 0x75330000 	C:\Windows\syswow64\SspiCli.dll
+0x752c0000 - 0x752cc000 	C:\Windows\syswow64\CRYPTBASE.dll
+0x74da0000 - 0x74deb000 	C:\Windows\system32\apphelp.dll
+0x6fc20000 - 0x6fcac000 	C:\Windows\AppPatch\AcLayers.dll
+0x75330000 - 0x75430000 	C:\Windows\syswow64\USER32.dll
+0x77010000 - 0x770a0000 	C:\Windows\syswow64\GDI32.dll
+0x765a0000 - 0x765aa000 	C:\Windows\syswow64\LPK.dll
+0x765b0000 - 0x7664d000 	C:\Windows\syswow64\USP10.dll
+0x75850000 - 0x76499000 	C:\Windows\syswow64\SHELL32.dll
+0x76db0000 - 0x76e07000 	C:\Windows\syswow64\SHLWAPI.dll
+0x76e10000 - 0x76f6c000 	C:\Windows\syswow64\ole32.dll
+0x76900000 - 0x7698f000 	C:\Windows\syswow64\OLEAUT32.dll
+0x73480000 - 0x73497000 	C:\Windows\system32\USERENV.dll
+0x74e20000 - 0x74e2b000 	C:\Windows\system32\profapi.dll
+0x735f0000 - 0x73641000 	C:\Windows\system32\WINSPOOL.DRV
+0x735b0000 - 0x735c2000 	C:\Windows\system32\MPR.dll
+0x6bb90000 - 0x6bda8000 	C:\Windows\AppPatch\AcGenral.DLL
+0x6fba0000 - 0x6fc20000 	C:\Windows\system32\UxTheme.dll
+0x75190000 - 0x751c2000 	C:\Windows\system32\WINMM.dll
+0x750a0000 - 0x750af000 	C:\Windows\system32\samcli.dll
+0x75170000 - 0x75184000 	C:\Windows\system32\MSACM32.dll
+0x751f0000 - 0x751f9000 	C:\Windows\system32\VERSION.dll
+0x6b100000 - 0x6b103000 	C:\Windows\system32\sfc.dll
+0x6b0f0000 - 0x6b0fd000 	C:\Windows\system32\sfc_os.DLL
+0x713a0000 - 0x713b3000 	C:\Windows\system32\dwmapi.dll
+0x771c0000 - 0x7735d000 	C:\Windows\syswow64\SETUPAPI.dll
+0x76b80000 - 0x76ba7000 	C:\Windows\syswow64\CFGMGR32.dll
+0x76990000 - 0x769a2000 	C:\Windows\syswow64\DEVOBJ.dll
+0x76720000 - 0x76855000 	C:\Windows\syswow64\urlmon.dll
+0x770a0000 - 0x771bc000 	C:\Windows\syswow64\CRYPT32.dll
+0x76860000 - 0x7686c000 	C:\Windows\syswow64\MSASN1.dll
+0x75460000 - 0x75659000 	C:\Windows\syswow64\iertutil.dll
+0x6d910000 - 0x6db69000 	C:\Windows\AppPatch\AcXtrnal.DLL
+0x74d40000 - 0x74d46000 	C:\Windows\system32\SHUNIMPL.DLL
+0x74d30000 - 0x74d3d000 	C:\Windows\system32\SortServer2003Compat.dll
+0x76a90000 - 0x76af0000 	C:\Windows\system32\IMM32.DLL
+0x76650000 - 0x7671c000 	C:\Windows\syswow64\MSCTF.dll
+0x10000000 - 0x10047000 	C:\Windows\SysWOW64\guard32.dll
+0x74e90000 - 0x74e97000 	C:\Windows\system32\fltlib.dll
+0x02aa0000 - 0x02d37000 	C:\Program Files (x86)\Java\jdk1.6.0_20\jre\bin\client\jvm.dll
+0x7c340000 - 0x7c396000 	C:\Program Files (x86)\Java\jdk1.6.0_20\bin\MSVCR71.dll
+0x6d860000 - 0x6d86c000 	C:\Program Files (x86)\Java\jdk1.6.0_20\jre\bin\verify.dll
+0x6d3e0000 - 0x6d3ff000 	C:\Program Files (x86)\Java\jdk1.6.0_20\jre\bin\java.dll
+0x6d340000 - 0x6d348000 	C:\Program Files (x86)\Java\jdk1.6.0_20\jre\bin\hpi.dll
+0x77000000 - 0x77005000 	C:\Windows\syswow64\PSAPI.DLL
+0x6d8a0000 - 0x6d8af000 	C:\Program Files (x86)\Java\jdk1.6.0_20\jre\bin\zip.dll
+0x6d0b0000 - 0x6d1fa000 	C:\Program Files (x86)\Java\jdk1.6.0_20\jre\bin\awt.dll
+0x76f70000 - 0x76ff4000 	C:\Windows\WinSxS\x86_microsoft.windows.common-controls_6595b64144ccf1df_5.82.7600.16385_none_ebf82fc36c758ad5\COMCTL32.dll
+0x741c0000 - 0x742b8000 	C:\Windows\system32\imjp12.ime
+0x6f770000 - 0x6f80b000 	C:\Windows\WinSxS\x86_microsoft.vc80.crt_1fc8b3b9a1e18e3b_8.0.50727.4927_none_d08a205e442db5b5\MSVCR80.dll
+0x6f6e0000 - 0x6f767000 	C:\Windows\WinSxS\x86_microsoft.vc80.crt_1fc8b3b9a1e18e3b_8.0.50727.4927_none_d08a205e442db5b5\MSVCP80.dll
+0x6f5b0000 - 0x6f6da000 	C:\Windows\system32\imjp12k.dll
+0x6d2e0000 - 0x6d334000 	C:\Program Files (x86)\Java\jdk1.6.0_20\jre\bin\fontmanager.dll
+0x6d6c0000 - 0x6d6d3000 	C:\Program Files (x86)\Java\jdk1.6.0_20\jre\bin\net.dll
+0x76870000 - 0x768a5000 	C:\Windows\syswow64\WS2_32.dll
+0x76cb0000 - 0x76cb6000 	C:\Windows\syswow64\NSI.dll
+0x72760000 - 0x7279c000 	C:\Windows\system32\mswsock.dll
+0x72280000 - 0x72286000 	C:\Windows\System32\wship6.dll
+0x6d6e0000 - 0x6d6e9000 	C:\Program Files (x86)\Java\jdk1.6.0_20\jre\bin\nio.dll
+0x73a40000 - 0x73c03000 	C:\Windows\system32\d3d9.dll
+0x73a30000 - 0x73a36000 	C:\Windows\system32\d3d8thk.dll
+0x73d70000 - 0x73d78000 	C:\Windows\system32\atiu9pag.dll
+0x63520000 - 0x63896000 	C:\Windows\system32\atiumdag.dll
+0x5d200000 - 0x5d4df000 	C:\Windows\system32\atiumdva.dll
+0x76a10000 - 0x76a8b000 	C:\Windows\syswow64\COMDLG32.DLL
+0x0eb80000 - 0x0ec70000 	C:\PROGRA~2\COMMON~1\MICROS~1\IME12\IMEJP\IMJPAPI.DLL
+0x6d740000 - 0x6d76d000 	C:\PROGRA~2\COMMON~1\MICROS~1\IME12\SHARED\IMJKAPI.DLL
+0x6d6f0000 - 0x6d740000 	C:\PROGRA~2\COMMON~1\MICROS~1\IME12\IMEJP\IMJPPRED.DLL
+0x76af0000 - 0x76b73000 	C:\Windows\syswow64\CLBCatQ.DLL
+0x6def0000 - 0x6e023000 	C:\PROGRA~2\COMMON~1\MICROS~1\IME12\IMEJP\IMJPTIP.DLL
+0x743c0000 - 0x743fc000 	C:\Windows\system32\OLEACC.dll
+0x6ddf0000 - 0x6de95000 	C:\PROGRA~2\COMMON~1\MICROS~1\IME12\SHARED\IMETIP.DLL
+0x6dd90000 - 0x6dda8000 	C:\PROGRA~2\COMMON~1\MICROS~1\IME12\SHARED\IMECFM.DLL
+0x74e70000 - 0x74e86000 	C:\Windows\system32\CRYPTSP.dll
+0x74e30000 - 0x74e6b000 	C:\Windows\system32\rsaenh.dll
+0x72c50000 - 0x72c5e000 	C:\Windows\system32\RpcRtRemote.dll
+0x6af40000 - 0x6af46000 	C:\PROGRA~2\COMMON~1\MICROS~1\IME12\IMEJP\IMJPCMPS.DLL
+
+VM Arguments:
+jvm_args: -Dscript.name=C:\work\new\jk\grails-app\domain\jk\Animal.groovy -Dtools.jar=C:\Program Files (x86)\Java\jdk1.6.0_20\lib\tools.jar -Dgroovy.starter.conf=C:\Program Files (x86)\Groovy\Groovy-1.7.2\conf\groovy-starter.conf -Dgroovy.home=C:\Program Files (x86)\Groovy\Groovy-1.7.2 
+java_command: <unknown>
+Launcher Type: generic
+
+Environment Variables:
+JAVA_HOME=C:\Program Files (x86)\Java\jdk1.6.0_20
+PATH=C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;c:\Program Files (x86)\ATI Technologies\ATI.ACE\Core-Static;C:\Program Files\Dell\Dell Wireless WLAN Card;C:\Program Files (x86)\Common Files\Roxio Shared\DLLShared\;C:\Program Files (x86)\Groovy\Groovy-1.7.2\bin;C:\Program Files (x86)\Java\jdk1.6.0_20\bin;C:\grails-1.3.2\grails-1.3.2\bin
+USERNAME=User
+OS=Windows_NT
+PROCESSOR_IDENTIFIER=Intel64 Family 6 Model 37 Stepping 2, GenuineIntel
+
+
+
+---------------  S Y S T E M  ---------------
+
+OS: Windows XP Build 2600 Service Pack 3
+
+CPU:total 4 (8 cores per cpu, 2 threads per core) family 6 model 37 stepping 2, cmov, cx8, fxsr, mmx, sse, sse2, sse3, ssse3, sse4.1, sse4.2, popcnt, ht
+
+Memory: 4k page, physical 4051496k(1717668k free), swap 8101092k(4591896k free)
+
+vm_info: Java HotSpot(TM) Client VM (16.3-b01) for windows-x86 JRE (1.6.0_20-b02), built on Apr 12 2010 13:52:23 by "java_re" with MS VC++ 7.1 (VS2003)
+
+time: Thu Jul 22 18:14:19 2010
+elapsed time: 9947 seconds
+
