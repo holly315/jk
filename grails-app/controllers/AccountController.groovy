@@ -11,7 +11,7 @@ class AccountController {
     def authenticateService
 
     // the delete, save and update actions only accept POST requests
-    static Map allowedMethods = [delete: 'POST', save: 'POST', update: 'POST']
+    static allowedMethods = [delete: 'POST', save: 'POST', update: 'POST']
 
     def index = {
         redirect action: list, params: params
@@ -94,7 +94,7 @@ class AccountController {
             redirect action: list
             return
         }
-
+        //return [account: account]
         return buildPersonModel(account)
     }
 
@@ -147,12 +147,12 @@ class AccountController {
         account.passwd = authenticateService.encodePassword(params.passwd)
         if (account.save()) {
             addRoles(account)
-            def map = new Map()
-            map.objectId = account.id
-            map.x = 0
-            map.y = 0
-            map.object = "Account"
-            if (map.save()) {
+            def mapobj = new Map()
+            mobj.objectId = account.id
+            mobj.x = 0
+            mobj.y = 0
+            mobj.object = "Account"
+            if (mobj.save()) {
                 redirect action: registered, id: account.id
             }
             else{
@@ -172,7 +172,7 @@ class AccountController {
         }
     }
 
-    private Map buildPersonModel(account) {
+    private buildPersonModel(account) {
 
         List roles = Authority.list()
         roles.sort { r1, r2 ->
