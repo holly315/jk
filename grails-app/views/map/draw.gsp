@@ -30,6 +30,7 @@
 			}
 
 			#header{
+			width:500px
 			height:150px;
 			margin:0;
 			padding:0;
@@ -66,7 +67,7 @@
 			#hidari{
 				position: relative;
 			    bottom:0px;
-			    left:-300px;
+			    left:-250px;
 				text-align:center;
 			}
 			#naka{
@@ -126,7 +127,7 @@
 			-->
 			</style>
     </head>
-    <body>
+ <body>
 	<%
 	int hande1 = 0
 	int hande2 = 0
@@ -142,7 +143,7 @@
 	<g:form action="home" controller="map" method="post">
 	<div id="header">
 		<span class="moji2">（自分）${accountInstance.name}対（相手）${accountInstance2.name}</span><br>
-		<span class="moji2">（自分）HP${params.hantei1}<font size="5" color="red">+10+${hande1}</font>対（相手）HP${params.hantei2}
+		<span class="moji2">（自分）HP${params.hantei1}<font size="5" color="red">+10+${hande1}</font><br> 対<br>（相手）HP${params.hantei2}
 		<font size="5" color="red">+${hande2}</font></span>
 	</div>
 	<div id="contents">	
@@ -174,5 +175,6 @@
 </g:form>
 </div>
 </div>
+
     </body>
 </html>

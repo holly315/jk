@@ -16,11 +16,8 @@
 			body{
 			margin:0;
 			padding:0;
-			background-color:#000000;
-				background-image: url("/jk/images/end.jpg"); /* 画像へのパス */
-				background-repeat : no-repeat;
-				background-attachment : fixed;
-				background-position : 0% 0%;
+					background-color:#000000;
+					
 			}
 
 			#wrapper{
@@ -28,14 +25,14 @@
 			margin:0 auto 0 auto;
 			padding:0;
 			background-color:#000000;
-					background-image: url("/jk/images/end.jpg"); /* 画像へのパス */
-					background-repeat : no-repeat;
-					background-attachment : fixed;
-					background-position : 0% 0%;
+			background-image: url("/jk/images/end.jpg"); /* 画像へのパス */
+			background-repeat : no-repeat;
+			background-attachment : fixed;
+			background-position : 0% 0%;
 			}
 
 			#header{
-			height:150px;
+			height:200px;
 			margin:0;
 			padding:0;
 			background-color:#000;
@@ -95,7 +92,7 @@
 				position: relative;
 				text-align:center;
 		    	top:50px;
-		    	left:500px;
+		    	left:0px;
 			}
 
 			p{
@@ -134,7 +131,10 @@
 			-->
 			</style>
 </head>
-<body>
+<BODY leftmargin="0" topmargin="0">
+<IMG src="/jk/images/end.jpg" width="100%" height="100%"
+style="position:absolute; top:0px; left:0px; z-index:1">
+<DIV style="position:absolute; top:10px; left:10px; z-index:2">
 <%
 int hande1 = 0
 int hande2 = 0
@@ -149,8 +149,8 @@ if(params.int('hande') >= 0){
 	<div id="wrapper">
 	<g:form action="index" controller="account" method="post" >
 		<div id="header">
-			<span class="moji2">（自分）${accountInstance.name}対（相手）${accountInstance2.name}</span><br>
-			<span class="moji2">（自分）HP${params.hantei1}<font size="5" color="red">+10+${hande1}</font>対（相手）HP${params.hantei2}
+			<span class="moji2">（自分）${accountInstance.name} 対 （相手）${accountInstance2.name}</span><br>
+			<span class="moji2">（自分）HP${params.hantei1}<font size="5" color="red">+10+${hande1}</font><br> 対<br>（相手）HP${params.hantei2}
 			<font size="5" color="red">+${hande2}</font></span>
 		</div>
 		<div id="contents">	
@@ -180,6 +180,6 @@ if(params.int('hande') >= 0){
 				</div>
 		</div>
 	</div>
-
+</div>
 </body>
 </html>

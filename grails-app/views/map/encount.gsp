@@ -11,84 +11,7 @@
 			width: 800px;
 			height: 200px;
 			}
-			<%
-				switch(accountInstance2.animal.name){
-					case("鹿"):
-							%>
-								body{
-								margin:0;
-								padding:0;
-								background-color:#dcdcdc;
-								background-image: url("/jk/images/sika2.jpg"); /* 画像へのパス */
-								background-repeat : no-repeat;
-								background-attachment : fixed;
-								background-position : 0% 50%;
-
-								}
-							<%
-						break
-					case("兎"):
-						%>
-							body{
-							margin:0;
-							padding:0;
-							background-color:#dcdcdc;
-							background-image: url("/jk/images/usagi2.jpg"); /* 画像へのパス */
-							background-repeat : no-repeat;
-							background-attachment : fixed;
-							background-position : 0% 50%;
-
-							}
-						<%
-						break
-					case("虎"):
-						%>
-							body{
-							margin:0;
-							padding:0;
-							background-color:#dcdcdc;
-							background-image: url("/jk/images/tora2.jpg"); /* 画像へのパス */
-							background-repeat : no-repeat;
-							background-attachment : fixed;
-							background-position : 0% 50%;
-
-							}
-						<%
-						break	
-					case("熊"):
-						%>
-							body{
-							margin:0;
-							padding:0;
-							background-color:#dcdcdc;
-							background-image: url("/jk/images/kuma2.jpg"); /* 画像へのパス */
-							background-repeat : no-repeat;
-							background-attachment : fixed;
-							background-position : 0% 50%;
-
-							}
-						<%
-						break
-					case("猫"):
-					%>
-						body{
-						margin:0;
-						padding:0;
-						background-color:#dcdcdc;
-						background-image: url("/jk/images/neko2.jpg"); /* 画像へのパス */
-						background-repeat : no-repeat;
-						background-attachment : fixed;
-						background-position : 0% 50%;
-
-						}
-					<%
-						break
-					default:
-						break
-
-				}
-			%>
-
+			
 			#wrapper{
 			width:100%;
 			margin:0 auto 0 auto;
@@ -153,9 +76,9 @@
 
 			#owari{
 				position: relative;
-				text-align:center;
-		    	top:100px;
-		    	left:500px;
+				text-align:left;
+		    	top:0px;
+		    	left:200px;
 			}
 
 			p{
@@ -173,7 +96,7 @@
 			.moji2{
 				font-weight: bold;
 				font-size:40;
-				color:red;
+				color:white;
 			}
 
 			h1 {
@@ -184,7 +107,7 @@
 			input, select, textarea {
 				background-color:#FCFCFC;
 				border:5px ridge #CCCCCC;
-				font:200px verdana,arial,helvetica,sans-serif;
+				font:20px verdana,arial,helvetica,sans-serif;
 				margin:2px 0;
 				padding:2px 4px;
 				background-color: #ffffff;         /* 背景色 */
@@ -194,11 +117,49 @@
 			-->
 			</style>
     </head>
-<body>
+	<BODY leftmargin="0" topmargin="0">
+			<%
+				switch(accountInstance2.animal.name){
+					case("鹿"):
+							%>
+							<IMG src="/jk/images/sika2.jpg" width="100%" height="100%"
+							style="position:absolute; top:0px; left:0px; z-index:1">
+							<%
+						break
+					case("兎"):
+						%>
+						<IMG src="/jk/images/usagi2.jpg" width="100%" height="100%"
+						style="position:absolute; top:0px; left:0px; z-index:1">
+						<%
+						break
+					case("虎"):
+						%>
+						<IMG src="/jk/images/tora2.jpg" width="100%" height="100%"
+						style="position:absolute; top:0px; left:0px; z-index:1">
+						<%
+						break	
+					case("熊"):
+						%>
+						<IMG src="/jk/images/kuma2.jpg" width="100%" height="100%"
+						style="position:absolute; top:0px; left:0px; z-index:1">	
+						<%
+						break
+					case("猫"):
+					%>
+						<IMG src="/jk/images/neko2.jpg" width="100%" height="100%"
+						style="position:absolute; top:0px; left:0px; z-index:1">
+					<%
+						break
+					default:
+						break
+
+				}
+			%>
+	<DIV style="position:absolute; top:10px; left:10px; z-index:2">
 
 	
     <g:form action="kekka" method="post" >
-	<span class="moji2">${accountInstance2.name}(${accountInstance2.animal.name})と遭遇しました</span>
+<center>	<span class="moji2">${accountInstance2.name}(${accountInstance2.animal.name})と遭遇しました!!</span></center>
 
 
 
@@ -214,5 +175,6 @@
 	
 
 </g:form>
+</div>
     </body>
 </html>

@@ -17,8 +17,8 @@
 		margin:0;
 		padding:0;
 		background-color:#dcdcdc;
-		background-image: url("/jk/images/lose.jpg")  /* 画像へのパス */
-	    
+	    background-image: url("/jk/images/lose.jpg")  /* 画像へのパス */
+		
 		}
 
 		#wrapper{
@@ -30,7 +30,7 @@
 		}
 
 		#header{
-		height:150px;
+		height:200px;
 		margin:0;
 		padding:0;
 		background-color:#000;
@@ -127,7 +127,10 @@
 		-->
 		</style>
     </head>
-    <body>
+ 	<BODY leftmargin="0" topmargin="0">
+	<IMG src="/jk/images/lose.jpg" width="100%" height="100%"
+	style="position:absolute; top:0px; left:0px; z-index:1">
+	<DIV style="position:absolute; top:10px; left:10px; z-index:2">
 <g:form action="home" controller="map" method="post" >
 	<%
 	int hande1 = 0
@@ -141,8 +144,8 @@
 	%>
 <div id="wrapper">
 <div id="header">
-				<span class="moji2">（自分）${accountInstance.name}対（相手）${accountInstance2.name}</span><br>
-				<span class="moji2">（自分）HP${params.hantei1}<font size="5" color="red">+10+${hande1}</font>対（相手）HP${params.hantei2}
+				<span class="moji2">（自分）${accountInstance.name} 対（相手）${accountInstance2.name}</span><br>
+				<span class="moji2">（自分）HP${params.hantei1}<font size="5" color="red">+10+${hande1}</font><br> 対<br>（相手）HP${params.hantei2}
 				<font size="5" color="red">+${hande2}</font></span>
 </div>
 <div id="contents">	
@@ -178,6 +181,7 @@
 </div>
 	</g:form>
 
-</div>	
+	</div>	
+</div>
 </body>
 </html>
