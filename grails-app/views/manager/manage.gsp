@@ -28,9 +28,22 @@
                 
                 <h2>管理者用メニュー:</h2>
                 <ul>
-                    <g:each var="c" in="${grailsApplication.controllerClasses.sort { it.fullName } }">
-                        <li class="controller"><g:link controller="${c.logicalPropertyName}">${c.fullName}</g:link></li>
-                    </g:each>
+                    
+                        <li class="controller"><a href="/jk/account/index">アカウント管理</a></li>
+                    
+                        <li class="controller"><a href="/jk/animal/index">動物管理</a></li>
+                    
+                        <li class="controller"><a href="/jk/battle/index">戦闘管理</a></li>
+                    
+                        <li class="controller"><a href="/jk/map/index">マップ管理</a></li>
+                        
+                        <li class="controller"><a href="/jk/authority/index">権限管理</a></li>
+                    
+                        <li class="controller"><a href="/jk/requestmap/index">権限による閲覧制限管理</a></li>
+                        
+                        <li class="controller"><a href="/jk/logout/index">ログアウト</a></li>
+
+
                 </ul>
             </div>
         </div>

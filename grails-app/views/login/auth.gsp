@@ -1,16 +1,14 @@
 
 <head>
-<meta name='layout' content='top' />
-<title>弱肉強食</title>
+<title>管理者用ログインフォーム</title>
+<link rel="stylesheet" href="${resource(dir:'css',file:'main.css')}" />
+        <link rel="shortcut icon" href="${resource(dir:'images',file:'favicon.ico')}" type="image/x-icon" />
 <style type='text/css' media='screen'>
         #superpanel{
         	margin-left:30px;
         }
         
         #nav {
-            margin-left:30px;
-            width:228px;
-            float:left;
         }
 
         #login {
@@ -56,17 +54,13 @@
             margin-bottom:15px;
             font-size:15pt;
         }
-        #pageBody {
-            margin-left:400px;
-            margin-right:20px;
-        }
-        #pageBody .biginnerlist {font-size: 13pt}
-        
-        #manager {
+        #backlink {
+        	margin-left:30px;
             margin-right:20px;
             margin-top:100px;
         	font-size: 8pt;
         }
+        #pageBody .biginnerlist {font-size: 13pt}
         
         </style>
     </head>
@@ -80,7 +74,7 @@
 			<div class='login_message'>${flash.message}</div>
 			</g:if>
 			<div class='fheader'>ログインフォーム</div>
-			<form action='${postUrl}' method='POST' id='loginForm' class='cssform' autocomplete='off'>
+			<form action='${postUrl}' method='POST' id='loginForm' class='cssform' autocomplete='off' target="_top">
 				<p>
 					<label for='j_username'>なまえ</label>
 					<input type='text' class='text_' name='j_username' id='j_username' value='${request.remoteUser}' />
@@ -90,36 +84,19 @@
 					<input type='password' class='text_' name='j_password' id='j_password' />
 				</p>
 				<p>
-					<label for='remember_me'>記憶させる</label>
-					<input type='checkbox' class='chk' name='_spring_security_remember_me' id='remember_me'
-					<g:if test='${hasCookie}'>checked='checked'</g:if> />
-				</p>
-				<p>
 					<input type='submit' value='ログイン' />
 				</p>
 			</form>
 		</div>
 		</div>
 <script type='text/javascript'>
-<!--
 (function(){
 	document.forms['loginForm'].elements['j_username'].focus();
 })();
-// -->
 </script>
 	</div>
-	<div id="pageBody">
-            <div id="controllerList" class="dialog">
-                <h2>ゲームをはじめる:</h2>
-                <ul>
-                    <li class="biginnerlist"><a href="../account/create">新規登録</a></li>
-                    <li class="biginnerlist"><a href="../rule.gsp">遊び方</a></li>
-                </ul>
-                <h2><g:link controller="animal" action="ranking">ランキング</g:link></h2>
-            </div>
-        </div>
-        <div id="manager">
-        	<a href="../manager/manage.gsp">管理者用メニュー</a>
-        </div>
+	<div id='backlink'>
+		<a href="/jk/logout/index"  target="_top>戻る</a>
+	</div>
     </div>
 </body>

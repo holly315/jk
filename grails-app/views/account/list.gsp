@@ -6,7 +6,7 @@
 <body>
 
 	<div class="nav">
-		<span class="menuButton"><a class="home" href="${createLinkTo(dir:'')}">Home</a></span>
+		<span class="menuButton"><a class="home" href="../manager/manage.gsp">back</a></span>
 		<span class="menuButton"><g:link class="create" action="create">New Account</g:link></span>
 	</div>
 
