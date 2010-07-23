@@ -147,7 +147,7 @@ class AccountController {
         account.passwd = authenticateService.encodePassword(params.passwd)
         if (account.save()) {
             addRoles(account)
-            def mapobj = new Map()
+            def mobj = new Map()
             mobj.objectId = account.id
             mobj.x = 0
             mobj.y = 0
