@@ -6,7 +6,7 @@
 <body>
 
 	<div class="nav">
-		<span class="menuButton"><a class="home" href="../manager/manage.gsp">back</a></span>
+		<span class="menuButton"><a class="home" href="../../manager/manage.gsp">back</a></span>
 		<span class="menuButton"><g:link class="list" action="list">Authority List</g:link></span>
 		<span class="menuButton"><g:link class="create" action="create">New Authority</g:link></span>
 	</div>
