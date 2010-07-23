@@ -6,42 +6,6 @@ import org.springframework.security.ui.webapp.AuthenticationProcessingFilter
 
 class MapController {
     static allowedMethods = [save: "POST", update: "POST", delete: "POST"]
-    def ranking = {
-        def allInstance
-        def title = params.dflg + "ランキング"
-        def num
-        switch (params.dflg) {
-        case "歴代勝利数":
-            num = Account.count()
-            allInstance = Account.getAll().sort{ r, l -> l.won <=> r.won }
-            break
-        case "歴代勝率":
-            num = Account.count()
-            allInstance = Account.getAll().sort{ r, l -> (l.won / (l.won + l.lost)) <=> (r.won / (r.won + r.lost)) }
-            break
-        case "生存者勝率":
-            num = Account.findAllWhere(deadflg:true).count()
-            allInstance = Account.findAllWhere(deadflg:true).sort{ r, l -> (l.won / (l.won + l.lost)) <=> (r.won / (r.won + r.lost)) }
-            break
-        default:
-            num = Account.findAllWhere(deadflg:true).count()
-            title = "生存者勝利数ランキング"
-            allInstance = Account.findAllWhere(deadflg:true).sort{ r, l -> l.won <=> r.won }
-            break
-        }
-        if (!allInstance) {
-            flash.message = "${message(code: 'default.not.found.message', args: [message(code: 'account.label', default: 'Account'), params.id])}"
-            redirect(action: "index")
-        }
-        [allInstance:allInstance, title:title, num:num]
-/*    
-    def list = {
-        params.max = Math.min(params.max ? params.int('max') : 10, 100)
-        [mapInstanceList: Map.list(params), mapInstanceTotal: Map.count()]
-    }
-*/
-    }
-    
     def meta = {
         def username = session[AuthenticationProcessingFilter.SPRING_SECURITY_LAST_USERNAME_KEY]
 //        println username
@@ -53,7 +17,6 @@ class MapController {
     
     def home = {
         def accountInstance = Account.get(params.id)
-        println accountInstance
         if (!accountInstance) {
             flash.message = "${message(code: 'default.not.found.message', args: [message(code: 'account.label', default: 'Account'), params.id])}"
             redirect(action: "index")
@@ -139,7 +102,7 @@ class MapController {
             if(mapInstance2.x==0 || mapInstance2.y==0) {
                 mapInstance2.x = Math.floor(Math.random()*4).toInteger() + 1
                 mapInstance2.y = Math.floor(Math.random()*4).toInteger() + 1
-                accountInstance.hp -= 5
+				accountInstance.hp = (accountInstance.hp < 5)?(0):(accountInstance.hp - 5)                
             }
 
             def mypos
@@ -357,8 +320,8 @@ class MapController {
                                     if(hako == accountInstance2.hp){
                                         accountInstance.lost++
                                         accountInstance2.lost++
-                                        accountInstance.log += date + "|${accountInstance2.name}と引き分けました<br>"
-                                        accountInstance2.log += date + "|${accountInstance.name}と引き分けました<br>"
+										accountInstance.log += "<font color='blue'>" + date + "|${accountInstance2.name}と引き分けました<br></font>"
+										accountInstance2.log += "<font color='blue'>" + date + "|${accountInstance.name}と引き分けました<br></font>"
                                             if(accountInstance.esa != 0){
                                                 accountInstance.esa--
                                                 }else{
@@ -373,8 +336,8 @@ class MapController {
                                     }else if(hako > accountInstance2.hp){
                                         accountInstance.won++
                                         accountInstance2.lost++
-                                        accountInstance.log += date + "|${accountInstance2.name}との戦闘に勝利しました<br>"
-                                        accountInstance2.log += date + "|${accountInstance.name}との戦闘に敗北しました<br>"
+										accountInstance.log += "<font color='red'>" + date + "|${accountInstance2.name}との戦闘に勝利しました<br></font>"
+										accountInstance2.log += "<font color='blue'>" + date + "|${accountInstance.name}との戦闘に敗北しました<br></font>"
                                             if(accountInstance.esa !=3){
                                                 accountInstance.esa++
                                             }
@@ -386,8 +349,8 @@ class MapController {
                                     }else if(hako < accountInstance2.hp){
                                         accountInstance2.won++
                                         accountInstance.lost++
-                                        accountInstance.log += date + "|${accountInstance2.name}との戦闘に敗北しました<br>"
-                                        accountInstance2.log += date + "|${accountInstance.name}との戦闘に勝利しました<br>"
+										accountInstance.log += "<font color='blue'>" + date + "|${accountInstance2.name}との戦闘に敗北しました<br></font>"
+										accountInstance2.log += "<font color='red'>" + date + "|${accountInstance.name}との戦闘に勝利しました<br></font>"
                                             if(accountInstance2.esa != 3){
                                                 accountInstance2.esa++
                                             }

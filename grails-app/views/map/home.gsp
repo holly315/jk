@@ -2,50 +2,59 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-        <meta name="layout" />
+		<meta name="layout" />
         <g:set var="entityName" value="${message(code: 'map.label', default: 'Map')}" />
         <title>${accountInstance.name}の巣</title>
     </head>
-	<body>
+	<body leftmargin="0" topmargin="0">
+		<img src="/jk/images/su.jpg" width="100%" height="100%" style="position:absolute; top:0px; left:0px; z-index:1">
+		<div style="position:absolute; top:10px; left:10px; z-index:2; width:100%">
+	<body bgcolor="saddlebrown">
+	<table bgcolor="saddlebrown" border="2">
+		<td>
         <div class="body">
-			<h1>${accountInstance.name}の巣</h1>
-            <g:if test="${flash.message}">
-            <div class="message">${flash.message}</div>
-            </g:if>
-            <g:hasErrors bean="${accountInstance}">
-            <div class="errors">
-                <g:renderErrors bean="${accountInstance}" as="index" />
-            </div>
-            </g:hasErrors>
-			
-			<g:link controller="logout">ログアウト</g:link><br>
+			<h2>${accountInstance.name}の巣</h2>
+			<g:if test="${flash.message}">
+			<div class="message">${flash.message}</div>
+			</g:if>
+			<g:hasErrors bean="${accountInstance}">
+			<div class="errors">
+				<g:renderErrors bean="${accountInstance}" as="index" />
+			</div>
+			</g:hasErrors>
 			
 			<g:link action="map" id="${accountInstance.id}"><font size="+1">外へ出る</font></g:link>
+			<br>
+			<g:link controller="logout">ログアウト</g:link>
+			<br>
+			</td>
+			<td>
+			<img src="/jk/images/${accountInstance.animal.img}" alt="animal" height="240" width="240" border="3" />
+			</td>
+			</table>
 			
-			<img src="/jk/images/${accountInstance.animal.img}" alt="animal" height="240" width="240" border="0" />
-
+				<span style="background-color:#f8f8f8; width:500px; text-align:left; float:left; border: 2px solid #808000">
+				<font size="+1">体力　${accountInstance.hp} ％</font>
+				<br>
+				<g:if test="${accountInstance.hp >= 50}">
+				<hr align="left" size="10" width="${accountInstance.hp * 5}" color="#37c832">
+				</g:if>
+				<g:if test="${accountInstance.hp < 50 && accountInstance.hp >= 20}">
+				<hr align="left" size="10" width="${accountInstance.hp * 5}" color="#dddd00">
+				</g:if>
+				<g:if test="${accountInstance.hp < 20}">
+				<hr align="left" size="10" width="${accountInstance.hp * 5}" color="#ff0000">
+				</g:if>
+				　えさ　<br>
+					<g:repeat times="${accountInstance.esa}">
+						<img src="/jk/images/esa.jpg" alt="animal" height="40" width="60" border="2" />
+					</g:repeat>
+				
+				</span>
 			
-			
-			<p>体力　${accountInstance.hp} ％</p>
-			<g:if test="${accountInstance.hp >= 50}">
-			<hr align="left" size="10" width="${accountInstance.hp * 5}" color="#37c832">
-			</g:if>
-			<g:if test="${accountInstance.hp < 50 && accountInstance.hp >= 20}">
-			<hr align="left" size="10" width="${accountInstance.hp * 5}" color="#ffff00">
-			</g:if>
-			<g:if test="${accountInstance.hp < 20}">
-			<hr align="left" size="10" width="${accountInstance.hp * 5}" color="#ff0000">
-			</g:if>
-			<p>えさ　
-				<g:repeat times="${accountInstance.esa}">
-				<img src="/jk/images/esa.jpg" alt="animal" height="40" width="60" border="0" />
-				</g:repeat>
-			</p>
-			
-			<div  align="right">
-			<br>ログ<br>
-			<font face="平成角ゴシック, ＭＳ ゴシック, monospace" size="-1" color="#999999">${accountInstance.log}</font>
-			</div>
+			<span style="font-weight:bold; color:#777777;background-color:#111111; width:550px; text-align:left; float:right; border: 2px solid #808000">
+				${accountInstance.log}
+			</span>
 			
         </div>
     </body>

@@ -3,6 +3,35 @@ package jk
 class AnimalController {
 
     static allowedMethods = [save: "POST", update: "POST", delete: "POST"]
+	def ranking = {
+		def allInstance
+		def title = params.dflg + "ランキング"
+		def num
+		switch (params.dflg) {
+		case "歴代勝利数":
+			num = Account.count()
+			allInstance = Account.getAll().sort{ r, l -> l.won <=> r.won }
+			break
+		case "歴代勝率":
+			num = Account.count()
+			allInstance = Account.getAll().sort{ r, l -> (l.won / ((l.won + l.lost)?(l.won + l.lost):(1))) <=> (r.won / ((r.won + r.lost)?(l.won + l.lost):(1))) }
+			break
+		case "生存者勝率":
+			num = Account.findAllWhere(deadflg:true).count()
+			allInstance = Account.findAllWhere(deadflg:true).sort{ r, l -> (l.won / ((l.won + l.lost)?(l.won + l.lost):(1))) <=> (r.won / ((r.won + r.lost)?(l.won + l.lost):(1))) }
+			break
+		default:
+			num = Account.findAllWhere(deadflg:true).count()
+			title = "生存者勝利数ランキング"
+			allInstance = Account.findAllWhere(deadflg:true).sort{ r, l -> l.won <=> r.won }
+			break
+		}
+		if (!allInstance) {
+			flash.message = "${message(code: 'default.not.found.message', args: [message(code: 'account.label', default: 'Account'), params.id])}"
+			redirect(action: "index")
+		}
+		[allInstance:allInstance, title:title, num:num]
+	}
 
     def index = {
         redirect(action: "list", params: params)

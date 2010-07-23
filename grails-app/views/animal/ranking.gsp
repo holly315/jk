@@ -6,9 +6,9 @@
         <g:set var="entityName" value="${message(code: 'map.label', default: 'Map')}" />
         <title>ランキング</title>
 	</head>
-		
 	<body>
 	<h1>${title}</h1>
+	<g:link controller="login">戻る</g:link>
 			<table>
 				<td>
 					<g:form action="ranking">
@@ -53,7 +53,7 @@
                             <td>${fieldValue(bean: accountInstance, field: "animal.name")}</td>
                             <td>${fieldValue(bean: accountInstance, field: "won")}</td>
                             <td>${fieldValue(bean: accountInstance, field: "lost")}</td>
-                            <td>${accountInstance.won / (accountInstance.won + accountInstance.lost)}</td>
+                            <td>${accountInstance.won / ((accountInstance.won + accountInstance.lost)?(accountInstance.won + accountInstance.lost):(1))}</td>
                         </tr>
                     </g:each>
                     </tbody>
