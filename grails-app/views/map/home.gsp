@@ -12,7 +12,7 @@
 	<body bgcolor="saddlebrown">
 	<table bgcolor="saddlebrown" border="2">
 		<td>
-        <div class="body">
+		<div class="body">
 			<h2>${accountInstance.name}の巣</h2>
 			<g:if test="${flash.message}">
 			<div class="message">${flash.message}</div>
@@ -22,7 +22,8 @@
 				<g:renderErrors bean="${accountInstance}" as="index" />
 			</div>
 			</g:hasErrors>
-			
+			通算 ${accountInstance.won}勝${accountInstance.lost}敗
+			<br>
 			<g:link action="map" id="${accountInstance.id}"><font size="+1">外へ出る</font></g:link>
 			<br>
 			<g:link controller="logout">ログアウト</g:link>

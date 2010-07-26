@@ -87,7 +87,7 @@ class MapController {
                 if(mapInstance.y < 3) {
                     esapos = "草原"
                 } else {
-                    esapos = "川"
+                    esapos = "川原"
                 }
             }
             
@@ -116,7 +116,7 @@ class MapController {
                 if(mapInstance2.y < 3) {
                     mypos = "草原"
                 } else {
-                    mypos = "川"
+                    mypos = "川原"
                 }
             }
             accountInstance.save(flush: true)
@@ -365,11 +365,11 @@ class MapController {
 
 
                                         if(params.int('hande') >= 0){
-                                                hantei1 = accountInstance.hp + hande
+                                                hantei1 = accountInstance.hp + hande + 10
                                                 hantei2 = accountInstance2.hp
                                         }else{
                                                 hantei2 = accountInstance2.hp - hande
-                                                hantei1 = accountInstance.hp    
+                                                hantei1 = accountInstance.hp + 10
                                         }    
 
                                         if(hantei1 == hantei2){

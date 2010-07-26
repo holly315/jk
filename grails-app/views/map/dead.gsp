@@ -16,19 +16,12 @@
 			body{
 			margin:0;
 			padding:0;
-					background-color:#000000;
-					
 			}
 
 			#wrapper{
 			width:100%;
 			margin:0 auto 0 auto;
 			padding:0;
-			background-color:#000000;
-			background-image: url("/jk/images/end.jpg"); /* 画像へのパス */
-			background-repeat : no-repeat;
-			background-attachment : fixed;
-			background-position : 0% 0%;
 			}
 
 			#header{
@@ -48,11 +41,6 @@
 			width:100%;
 			margin:0;
 			padding:0;
-			background-color:#000000;
-				background-image: url("/jk/images/end.jpg"); /* 画像へのパス */
-				background-repeat : no-repeat;
-				background-attachment : fixed;
-				background-position : 0% 0%;
 			}
 
 			#footer{
@@ -131,10 +119,9 @@
 			-->
 			</style>
 </head>
-<BODY leftmargin="0" topmargin="0">
-<IMG src="/jk/images/end.jpg" width="100%" height="100%"
-style="position:absolute; top:0px; left:0px; z-index:1">
-<DIV style="position:absolute; top:10px; left:10px; z-index:2">
+	<body leftmargin="0" topmargin="0">
+			<img src="/jk/images/end.jpg" width="1520px" height="970px" style="position:absolute; top:0px; left:0px; z-index:1">
+			<div style="position:absolute; top:10px; left:10px; z-index:2; width:100%">
 <%
 int hande1 = 0
 int hande2 = 0

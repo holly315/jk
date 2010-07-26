@@ -14,11 +14,11 @@ class AnimalController {
 			break
 		case "歴代勝率":
 			num = Account.count()
-			allInstance = Account.getAll().sort{ r, l -> (l.won / ((l.won + l.lost)?(l.won + l.lost):(1))) <=> (r.won / ((r.won + r.lost)?(l.won + l.lost):(1))) }
+			allInstance = Account.getAll().sort{ r, l -> (l.won / ((l.won + l.lost)?(l.won + l.lost):(1))) <=> (r.won / ((r.won + r.lost)?(r.won + r.lost):(1))) }
 			break
 		case "生存者勝率":
 			num = Account.findAllWhere(deadflg:true).count()
-			allInstance = Account.findAllWhere(deadflg:true).sort{ r, l -> (l.won / ((l.won + l.lost)?(l.won + l.lost):(1))) <=> (r.won / ((r.won + r.lost)?(l.won + l.lost):(1))) }
+			allInstance = Account.findAllWhere(deadflg:true).sort{ r, l -> (l.won / ((l.won + l.lost)?(l.won + l.lost):(1))) <=> (r.won / ((r.won + r.lost)?(r.won + r.lost):(1))) }
 			break
 		default:
 			num = Account.findAllWhere(deadflg:true).count()

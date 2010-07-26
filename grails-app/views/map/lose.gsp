@@ -16,8 +16,6 @@
 		body{
 		margin:0;
 		padding:0;
-		background-color:#dcdcdc;
-	    background-image: url("/jk/images/lose.jpg")  /* 画像へのパス */
 		
 		}
 
@@ -25,8 +23,6 @@
 		width:100%;
 		margin:0 auto 0 auto;
 		padding:0;
-		background-color:#ffffff;
-		background-image: url("/jk/images/lose.jpg")  /* 画像へのパス */
 		}
 
 		#header{
@@ -46,8 +42,6 @@
 		width:100%;
 		margin:0;
 		padding:0;
-		background-color:#f0f8ff;
-		background-image: url("/jk/images/lose.jpg")  /* 画像へのパス */
 		
 		}
 
@@ -127,10 +121,9 @@
 		-->
 		</style>
     </head>
- 	<BODY leftmargin="0" topmargin="0">
-	<IMG src="/jk/images/lose.jpg" width="100%" height="100%"
-	style="position:absolute; top:0px; left:0px; z-index:1">
-	<DIV style="position:absolute; top:10px; left:10px; z-index:2">
+	<body leftmargin="0" topmargin="0">
+			<img src="/jk/images/lose.jpg" width="1520px" height="820px" style="position:absolute; top:0px; left:0px; z-index:1">
+			<div style="position:absolute; top:10px; left:10px; z-index:2; width:100%">
 <g:form action="home" controller="map" method="post" >
 	<%
 	int hande1 = 0

@@ -6,9 +6,16 @@
         <g:set var="entityName" value="${message(code: 'map.label', default: 'Map')}" />
         <title>ランキング</title>
 	</head>
-	<body>
-	<h1>${title}</h1>
-	<g:link controller="login">戻る</g:link>
+	<body leftmargin="0" topmargin="0">
+		<img src="/jk/images/ranking.jpg" width="100%" height="100%" style="position:fixed; top:0px; left:0px; z-index:1">
+		<div style="position:absolute; top:10px; left:10px; z-index:2; width:90%">
+			<span style="background-color:#f8f8f8; font-size:24px; text-align:left; float:left; border: 2px solid #808000">
+			${title}
+			</span>
+			<br><br>
+			<form method="post" action="../">
+			<g:submitButton name="ret" value="　戻る　" />
+			</form>
 			<table>
 				<td>
 					<g:form action="ranking">
@@ -36,7 +43,7 @@
             <div class="message">${flash.message}</div>
             </g:if>
             <div class="list">
-                <table border="1">
+                <table border="1" bgcolor="white">
                     <thead bgcolor="orange">
                         <tr>
                             <td>名前</td>
@@ -59,9 +66,6 @@
                     </tbody>
                 </table>
 			</div>
-			<div class="paginateButtons">
-                <g:paginate total="${num}" />
-            </div>
         </div>
     </body>
 </html>

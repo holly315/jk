@@ -21,7 +21,7 @@
 			<img src="/jk/images/sougen.png" width="100%" height="100%" style="position:absolute; top:0px; left:0px; z-index:1">
 			<div style="position:absolute; top:10px; left:10px; z-index:2; width:100%">
 		</g:if>
-		<g:if test="${mypos == '川'}">
+		<g:if test="${mypos == '川原'}">
 			<img src="/jk/images/kawa.jpg" width="100%" height="100%" style="position:absolute; top:0px; left:0px; z-index:1">
 			<div style="position:absolute; top:10px; left:10px; z-index:2; width:100%">
 		</g:if>
@@ -57,7 +57,7 @@
 		<g:if test="${mypos == '草原'}">
 			<table bgcolor="limegreen" border="2">
 		</g:if>
-		<g:if test="${mypos == '川'}">
+		<g:if test="${mypos == '川原'}">
 			<table bgcolor="lightskyblue" border="2">
 		</g:if>
 					<td>

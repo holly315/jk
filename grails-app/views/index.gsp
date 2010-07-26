@@ -48,7 +48,7 @@
                     <li class="biginnerlist"><a href="./account/create">新規登録</a></li>
                     <li class="biginnerlist"><a href="./rule.gsp">遊び方</a></li>
                 </ul>
-                <h2><g:link controller="map" action="ranking">ランキング</g:link></h2>
+                <h2><g:link controller="animal" action="ranking">ランキング</g:link></h2>
             </div>
         </div>
     </div>
