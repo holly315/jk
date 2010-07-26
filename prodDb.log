@@ -378,3 +378,107 @@ SET AUTOCOMMIT FALSE
 DELETE FROM MAP WHERE ID=31
 INSERT INTO MAP VALUES(31,2,'Account',16,0,0)
 SET AUTOCOMMIT TRUE
+SET AUTOCOMMIT FALSE
+DELETE FROM ACCOUNT WHERE ID=16
+INSERT INTO ACCOUNT VALUES(16,3,1,TRUE,'a@g.com',3,90,' ',0,'temp','d969831eb8a99cff8c02e681f43289e5d3d69664',0)
+SET AUTOCOMMIT TRUE
+SET AUTOCOMMIT FALSE
+DELETE FROM MAP WHERE ID=31
+INSERT INTO MAP VALUES(31,3,'Account',16,4,1)
+SET AUTOCOMMIT TRUE
+SET AUTOCOMMIT FALSE
+DELETE FROM MAP WHERE ID=31
+INSERT INTO MAP VALUES(31,4,'Account',16,0,0)
+SET AUTOCOMMIT TRUE
+SET AUTOCOMMIT FALSE
+DELETE FROM ACCOUNT WHERE ID=16
+INSERT INTO ACCOUNT VALUES(16,4,1,TRUE,'a@g.com',3,85,' ',0,'temp','d969831eb8a99cff8c02e681f43289e5d3d69664',0)
+SET AUTOCOMMIT TRUE
+SET AUTOCOMMIT FALSE
+DELETE FROM MAP WHERE ID=31
+INSERT INTO MAP VALUES(31,5,'Account',16,3,2)
+SET AUTOCOMMIT TRUE
+SET AUTOCOMMIT FALSE
+DELETE FROM ACCOUNT WHERE ID=16
+INSERT INTO ACCOUNT VALUES(16,5,1,TRUE,'a@g.com',3,83,' Mon Jul 26 11:55:14 JST 2010|\u5357\u3078\u79fb\u52d5\u3057\u307e\u3057\u305f\u3002<br>',0,'temp','d969831eb8a99cff8c02e681f43289e5d3d69664',0)
+SET AUTOCOMMIT TRUE
+SET AUTOCOMMIT FALSE
+DELETE FROM MAP WHERE ID=31
+INSERT INTO MAP VALUES(31,6,'Account',16,3,3)
+SET AUTOCOMMIT TRUE
+SET AUTOCOMMIT FALSE
+DELETE FROM MAP WHERE ID=31
+INSERT INTO MAP VALUES(31,7,'Account',16,0,0)
+SET AUTOCOMMIT TRUE
+SET AUTOCOMMIT FALSE
+DELETE FROM ACCOUNT WHERE ID=16
+INSERT INTO ACCOUNT VALUES(16,6,1,TRUE,'a@g.com',3,78,' Mon Jul 26 11:55:14 JST 2010|\u5357\u3078\u79fb\u52d5\u3057\u307e\u3057\u305f\u3002<br>',0,'temp','d969831eb8a99cff8c02e681f43289e5d3d69664',0)
+SET AUTOCOMMIT TRUE
+SET AUTOCOMMIT FALSE
+DELETE FROM MAP WHERE ID=31
+INSERT INTO MAP VALUES(31,8,'Account',16,2,1)
+SET AUTOCOMMIT TRUE
+SET AUTOCOMMIT FALSE
+DELETE FROM MAP WHERE ID=31
+INSERT INTO MAP VALUES(31,9,'Account',16,0,0)
+SET AUTOCOMMIT TRUE
+SET AUTOCOMMIT FALSE
+DELETE FROM ACCOUNT WHERE ID=16
+INSERT INTO ACCOUNT VALUES(16,7,1,TRUE,'a@g.com',3,73,' Mon Jul 26 11:55:14 JST 2010|\u5357\u3078\u79fb\u52d5\u3057\u307e\u3057\u305f\u3002<br>',0,'temp','d969831eb8a99cff8c02e681f43289e5d3d69664',0)
+SET AUTOCOMMIT TRUE
+SET AUTOCOMMIT FALSE
+DELETE FROM MAP WHERE ID=31
+INSERT INTO MAP VALUES(31,10,'Account',16,1,4)
+SET AUTOCOMMIT TRUE
+SET AUTOCOMMIT FALSE
+DELETE FROM ACCOUNT WHERE ID=1
+INSERT INTO ACCOUNT VALUES(1,25,1,TRUE,'',2,90,'Thu Jul 22 17:18:20 JST 2010|\u5357\ufffd\u0588\u0693\ufffd\ufffd\ufffd\ufffd\u0702\ufffd\ufffd\ufffd\ufffdB<br>Thu Jul 22 17:18:20 JST 2010|\u5317\ufffd\u0588\u0693\ufffd\ufffd\ufffd\ufffd\u0702\ufffd\ufffd\ufffd\ufffdB<br>Thu Jul 22 17:21:27 JST 2010|\u897f\ufffd\u0588\u0693\ufffd\ufffd\ufffd\ufffd\u0702\ufffd\ufffd\ufffd\ufffdB<br>Thu Jul 22 17:21:31 JST 2010|\u6771\ufffd\u0588\u0693\ufffd\ufffd\ufffd\ufffd\u0702\ufffd\ufffd\ufffd\ufffdB<br>Thu Jul 22 17:21:59 JST 2010|\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffdg\ufffd\ufffd\ufffd\u0702\ufffd\ufffd\ufffd<br>',0,'test','a94a8fe5ccb19ba61c4c0873d391e987982fbbd3',0)
+SET AUTOCOMMIT TRUE
+SET AUTOCOMMIT FALSE
+DELETE FROM MAP WHERE ID=1
+INSERT INTO MAP VALUES(1,217,'Account',1,1,2)
+SET AUTOCOMMIT TRUE
+SET AUTOCOMMIT FALSE
+DELETE FROM ACCOUNT WHERE ID=1
+INSERT INTO ACCOUNT VALUES(1,26,1,TRUE,'',2,88,'Thu Jul 22 17:18:20 JST 2010|\u5357\ufffd\u0588\u0693\ufffd\ufffd\ufffd\ufffd\u0702\ufffd\ufffd\ufffd\ufffdB<br>Thu Jul 22 17:18:20 JST 2010|\u5317\ufffd\u0588\u0693\ufffd\ufffd\ufffd\ufffd\u0702\ufffd\ufffd\ufffd\ufffdB<br>Thu Jul 22 17:21:27 JST 2010|\u897f\ufffd\u0588\u0693\ufffd\ufffd\ufffd\ufffd\u0702\ufffd\ufffd\ufffd\ufffdB<br>Thu Jul 22 17:21:31 JST 2010|\u6771\ufffd\u0588\u0693\ufffd\ufffd\ufffd\ufffd\u0702\ufffd\ufffd\ufffd\ufffdB<br>Thu Jul 22 17:21:59 JST 2010|\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffdg\ufffd\ufffd\ufffd\u0702\ufffd\ufffd\ufffd<br>Mon Jul 26 12:02:51 JST 2010|\u6771\u3078\u79fb\u52d5\u3057\u307e\u3057\u305f\u3002<br>',0,'test','a94a8fe5ccb19ba61c4c0873d391e987982fbbd3',0)
+SET AUTOCOMMIT TRUE
+SET AUTOCOMMIT FALSE
+DELETE FROM MAP WHERE ID=1
+INSERT INTO MAP VALUES(1,218,'Account',1,2,2)
+SET AUTOCOMMIT TRUE
+SET AUTOCOMMIT FALSE
+DELETE FROM ACCOUNT WHERE ID=1
+INSERT INTO ACCOUNT VALUES(1,27,1,TRUE,'',2,88,'Thu Jul 22 17:18:20 JST 2010|\u5317\ufffd\u0588\u0693\ufffd\ufffd\ufffd\ufffd\u0702\ufffd\ufffd\ufffd\ufffdB<br>Thu Jul 22 17:21:27 JST 2010|\u897f\ufffd\u0588\u0693\ufffd\ufffd\ufffd\ufffd\u0702\ufffd\ufffd\ufffd\ufffdB<br>Thu Jul 22 17:21:31 JST 2010|\u6771\ufffd\u0588\u0693\ufffd\ufffd\ufffd\ufffd\u0702\ufffd\ufffd\ufffd\ufffdB<br>Thu Jul 22 17:21:59 JST 2010|\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffdg\ufffd\ufffd\ufffd\u0702\ufffd\ufffd\ufffd<br>Mon Jul 26 12:02:51 JST 2010|\u6771\u3078\u79fb\u52d5\u3057\u307e\u3057\u305f\u3002<br>',0,'test','a94a8fe5ccb19ba61c4c0873d391e987982fbbd3',0)
+SET AUTOCOMMIT TRUE
+SET AUTOCOMMIT FALSE
+DELETE FROM MAP WHERE ID=1
+INSERT INTO MAP VALUES(1,219,'Account',1,3,2)
+SET AUTOCOMMIT TRUE
+SET AUTOCOMMIT FALSE
+DELETE FROM ACCOUNT WHERE ID=1
+INSERT INTO ACCOUNT VALUES(1,28,1,TRUE,'',3,88,'Thu Jul 22 17:18:20 JST 2010|\u5317\ufffd\u0588\u0693\ufffd\ufffd\ufffd\ufffd\u0702\ufffd\ufffd\ufffd\ufffdB<br>Thu Jul 22 17:21:27 JST 2010|\u897f\ufffd\u0588\u0693\ufffd\ufffd\ufffd\ufffd\u0702\ufffd\ufffd\ufffd\ufffdB<br>Thu Jul 22 17:21:31 JST 2010|\u6771\ufffd\u0588\u0693\ufffd\ufffd\ufffd\ufffd\u0702\ufffd\ufffd\ufffd\ufffdB<br>Thu Jul 22 17:21:59 JST 2010|\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffdg\ufffd\ufffd\ufffd\u0702\ufffd\ufffd\ufffd<br>Mon Jul 26 12:02:51 JST 2010|\u6771\u3078\u79fb\u52d5\u3057\u307e\u3057\u305f\u3002<br><font color=''red''>Mon Jul 26 12:02:52 JST 2010|test\u718a\u3068\u306e\u6226\u95d8\u306b\u52dd\u5229\u3057\u307e\u3057\u305f<br></font>',0,'test','a94a8fe5ccb19ba61c4c0873d391e987982fbbd3',1)
+SET AUTOCOMMIT TRUE
+SET AUTOCOMMIT FALSE
+DELETE FROM ACCOUNT WHERE ID=3
+INSERT INTO ACCOUNT VALUES(3,42,4,FALSE,'',1,100,' <font color=''blue''>Fri Jul 23 12:10:48 JST 2010|horie\u3068\u306e\u6226\u95d8\u306b\u6557\u5317\u3057\u307e\u3057\u305f<br></font><font color=''red''>Fri Jul 23 12:13:28 JST 2010|horie\u3068\u306e\u6226\u95d8\u306b\u52dd\u5229\u3057\u307e\u3057\u305f<br></font><font color=''red''>Fri Jul 23 12:22:07 JST 2010|horie\u3068\u306e\u6226\u95d8\u306b\u52dd\u5229\u3057\u307e\u3057\u305f<br></font><font color=''blue''>Fri Jul 23 12:35:20 JST 2010|horie\u3068\u306e\u6226\u95d8\u306b\u6557\u5317\u3057\u307e\u3057\u305f<br></font><font color=''blue''>Fri Jul 23 12:47:10 JST 2010|horie\u3068\u306e\u6226\u95d8\u306b\u6557\u5317\u3057\u307e\u3057\u305f<br></font><font color=''red''>Fri Jul 23 12:47:42 JST 2010|horie\u3068\u306e\u6226\u95d8\u306b\u52dd\u5229\u3057\u307e\u3057\u305f<br></font><font color=''red''>Fri Jul 23 12:48:17 JST 2010|horie\u3068\u306e\u6226\u95d8\u306b\u52dd\u5229\u3057\u307e\u3057\u305f<br></font><font color=''red''>Fri Jul 23 12:48:41 JST 2010|horie\u3068\u306e\u6226\u95d8\u306b\u52dd\u5229\u3057\u307e\u3057\u305f<br></font><font color=''red''>Fri Jul 23 12:48:59 JST 2010|horie\u3068\u306e\u6226\u95d8\u306b\u52dd\u5229\u3057\u307e\u3057\u305f<br></font><font color=''blue''>Fri Jul 23 12:49:12 JST 2010|horie\u3068\u306e\u6226\u95d8\u306b\u6557\u5317\u3057\u307e\u3057\u305f<br></font><font color=''red''>Fri Jul 23 16:30:30 JST 2010|tera\u3068\u306e\u6226\u95d8\u306b\u52dd\u5229\u3057\u307e\u3057\u305f<br></font><font color=''red''>Fri Jul 23 16:30:56 JST 2010|tera\u3068\u306e\u6226\u95d8\u306b\u52dd\u5229\u3057\u307e\u3057\u305f<br></font><font color=''red''>Fri Jul 23 16:31:23 JST 2010|tera\u3068\u306e\u6226\u95d8\u306b\u52dd\u5229\u3057\u307e\u3057\u305f<br></font><font color=''blue''>Fri Jul 23 16:37:33 JST 2010|\u3055\u308b\u3068\u5f15\u304d\u5206\u3051\u307e\u3057\u305f<br></font><font color=''blue''>Fri Jul 23 16:38:11 JST 2010|\u3055\u308b\u3068\u5f15\u304d\u5206\u3051\u307e\u3057\u305f<br></font><font color=''red''>Fri Jul 23 16:38:32 JST 2010|\u3055\u308b\u3068\u306e\u6226\u95d8\u306b\u52dd\u5229\u3057\u307e\u3057\u305f<br></font><font color=''red''>Fri Jul 23 16:38:46 JST 2010|\u3055\u308b\u3068\u306e\u6226\u95d8\u306b\u52dd\u5229\u3057\u307e\u3057\u305f<br></font><font color=''red''>Fri Jul 23 16:39:06 JST 2010|\u3055\u308b\u3068\u306e\u6226\u95d8\u306b\u52dd\u5229\u3057\u307e\u3057\u305f<br></font><font color=''blue''>Fri Jul 23 16:40:13 JST 2010|\u795e\u3068\u306e\u6226\u95d8\u306b\u6557\u5317\u3057\u307e\u3057\u305f<br></font><font color=''blue''>Fri Jul 23 16:40:29 JST 2010|\u795e\u3068\u306e\u6226\u95d8\u306b\u6557\u5317\u3057\u307e\u3057\u305f<br></font><font color=''blue''>Fri Jul 23 16:40:37 JST 2010|\u795e\u3068\u306e\u6226\u95d8\u306b\u6557\u5317\u3057\u307e\u3057\u305f<br></font><font color=''blue''>Fri Jul 23 16:40:45 JST 2010|\u795e\u3068\u306e\u6226\u95d8\u306b\u6557\u5317\u3057\u307e\u3057\u305f<br></font><font color=''blue''>Fri Jul 23 16:40:55 JST 2010|\u795e\u3068\u306e\u6226\u95d8\u306b\u6557\u5317\u3057\u307e\u3057\u305f<br></font><font color=''blue''>Fri Jul 23 16:41:01 JST 2010|\u795e\u3068\u306e\u6226\u95d8\u306b\u6557\u5317\u3057\u307e\u3057\u305f<br></font><font color=''blue''>Fri Jul 23 16:41:09 JST 2010|\u795e\u3068\u306e\u6226\u95d8\u306b\u6557\u5317\u3057\u307e\u3057\u305f<br></font><font color=''blue''>Fri Jul 23 16:41:38 JST 2010|\u795e\u3068\u306e\u6226\u95d8\u306b\u6557\u5317\u3057\u307e\u3057\u305f<br></font><font color=''red''>Fri Jul 23 16:41:56 JST 2010|\u795e\u3068\u306e\u6226\u95d8\u306b\u52dd\u5229\u3057\u307e\u3057\u305f<br></font><font color=''blue''>Fri Jul 23 16:42:19 JST 2010|\u795e\u3068\u306e\u6226\u95d8\u306b\u6557\u5317\u3057\u307e\u3057\u305f<br></font><font color=''blue''>Fri Jul 23 16:42:24 JST 2010|\u795e\u3068\u306e\u6226\u95d8\u306b\u6557\u5317\u3057\u307e\u3057\u305f<br></font><font color=''blue''>Fri Jul 23 16:42:34 JST 2010|\u795e\u3068\u306e\u6226\u95d8\u306b\u6557\u5317\u3057\u307e\u3057\u305f<br></font><font color=''blue''>Fri Jul 23 16:42:43 JST 2010|\u795e\u3068\u306e\u6226\u95d8\u306b\u6557\u5317\u3057\u307e\u3057\u305f<br></font><font color=''blue''>Fri Jul 23 16:43:10 JST 2010|\u795e\u3068\u306e\u6226\u95d8\u306b\u6557\u5317\u3057\u307e\u3057\u305f<br></font><font color=''blue''>Fri Jul 23 16:43:45 JST 2010|\u795e\u3068\u306e\u6226\u95d8\u306b\u6557\u5317\u3057\u307e\u3057\u305f<br></font><font color=''blue''>Fri Jul 23 16:48:35 JST 2010|\u795e\u3068\u306e\u6226\u95d8\u306b\u6557\u5317\u3057\u307e\u3057\u305f<br></font><font color=''blue''>Fri Jul 23 16:48:50 JST 2010|\u795e\u3068\u306e\u6226\u95d8\u306b\u6557\u5317\u3057\u307e\u3057\u305f<br></font><font color=''blue''>Fri Jul 23 16:49:13 JST 2010|\u795e\u3068\u306e\u6226\u95d8\u306b\u6557\u5317\u3057\u307e\u3057\u305f<br></font><font color=''blue''>Fri Jul 23 16:49:26 JST 2010|\u795e\u3068\u306e\u6226\u95d8\u306b\u6557\u5317\u3057\u307e\u3057\u305f<br></font><font color=''blue''>Fri Jul 23 16:49:39 JST 2010|\u795e\u3068\u306e\u6226\u95d8\u306b\u6557\u5317\u3057\u307e\u3057\u305f<br></font><font color=''red''>Mon Jul 26 10:12:09 JST 2010|horie3\u3068\u306e\u6226\u95d8\u306b\u52dd\u5229\u3057\u307e\u3057\u305f<br></font><font color=''red''>Mon Jul 26 10:12:28 JST 2010|horie3\u3068\u306e\u6226\u95d8\u306b\u52dd\u5229\u3057\u307e\u3057\u305f<br></font><font color=''blue''>Mon Jul 26 12:02:52 JST 2010|test\u3068\u306e\u6226\u95d8\u306b\u6557\u5317\u3057\u307e\u3057\u305f<br></font>',26,'test\u718a','a94a8fe5ccb19ba61c4c0873d391e987982fbbd3',15)
+SET AUTOCOMMIT TRUE
+SET AUTOCOMMIT FALSE
+DELETE FROM ACCOUNT WHERE ID=1
+INSERT INTO ACCOUNT VALUES(1,29,1,TRUE,'',3,86,'Thu Jul 22 17:18:20 JST 2010|\u5317\ufffd\u0588\u0693\ufffd\ufffd\ufffd\ufffd\u0702\ufffd\ufffd\ufffd\ufffdB<br>Thu Jul 22 17:21:27 JST 2010|\u897f\ufffd\u0588\u0693\ufffd\ufffd\ufffd\ufffd\u0702\ufffd\ufffd\ufffd\ufffdB<br>Thu Jul 22 17:21:31 JST 2010|\u6771\ufffd\u0588\u0693\ufffd\ufffd\ufffd\ufffd\u0702\ufffd\ufffd\ufffd\ufffdB<br>Thu Jul 22 17:21:59 JST 2010|\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffdg\ufffd\ufffd\ufffd\u0702\ufffd\ufffd\ufffd<br>Mon Jul 26 12:02:51 JST 2010|\u6771\u3078\u79fb\u52d5\u3057\u307e\u3057\u305f\u3002<br><font color=''red''>Mon Jul 26 12:02:52 JST 2010|test\u718a\u3068\u306e\u6226\u95d8\u306b\u52dd\u5229\u3057\u307e\u3057\u305f<br></font>Mon Jul 26 12:02:57 JST 2010|\u897f\u3078\u79fb\u52d5\u3057\u307e\u3057\u305f\u3002<br>',0,'test','a94a8fe5ccb19ba61c4c0873d391e987982fbbd3',1)
+SET AUTOCOMMIT TRUE
+SET AUTOCOMMIT FALSE
+DELETE FROM MAP WHERE ID=1
+INSERT INTO MAP VALUES(1,220,'Account',1,2,2)
+SET AUTOCOMMIT TRUE
+SET AUTOCOMMIT FALSE
+DELETE FROM ACCOUNT WHERE ID=1
+INSERT INTO ACCOUNT VALUES(1,30,1,TRUE,'',3,86,'Thu Jul 22 17:21:31 JST 2010|\u6771\ufffd\u0588\u0693\ufffd\ufffd\ufffd\ufffd\u0702\ufffd\ufffd\ufffd\ufffdB<br>Thu Jul 22 17:21:59 JST 2010|\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffdg\ufffd\ufffd\ufffd\u0702\ufffd\ufffd\ufffd<br>Mon Jul 26 12:02:51 JST 2010|\u6771\u3078\u79fb\u52d5\u3057\u307e\u3057\u305f\u3002<br><font color=''red''>Mon Jul 26 12:02:52 JST 2010|test\u718a\u3068\u306e\u6226\u95d8\u306b\u52dd\u5229\u3057\u307e\u3057\u305f<br></font>Mon Jul 26 12:02:57 JST 2010|\u897f\u3078\u79fb\u52d5\u3057\u307e\u3057\u305f\u3002<br>',0,'test','a94a8fe5ccb19ba61c4c0873d391e987982fbbd3',1)
+SET AUTOCOMMIT TRUE
+SET AUTOCOMMIT FALSE
+DELETE FROM MAP WHERE ID=1
+INSERT INTO MAP VALUES(1,221,'Account',1,0,0)
+SET AUTOCOMMIT TRUE
+SET AUTOCOMMIT FALSE
+DELETE FROM MAP WHERE ID=31
+INSERT INTO MAP VALUES(31,11,'Account',16,0,0)
+SET AUTOCOMMIT TRUE

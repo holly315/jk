@@ -45,11 +45,12 @@ class LoginController {
 
         nocache response
 
-        if (isLoggedIn()) {
+/*		ログイン状態でのインラインフレーム表示バグの原因
+		if (isLoggedIn()) {
             redirect uri: '/map/meta'
             return
         }
-
+*/
         String view
         String postUrl
         def config = authenticateService.securityConfig.security
