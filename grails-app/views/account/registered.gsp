@@ -43,15 +43,18 @@
 				padding:2px 4px;
 				background-color: #ffffff;         /* 背景色 */
 			}
-
+			body { 
+				overflow-y: hidden;
+				overflow-x: hidden;
+				 }
 		-->
 	</style>
 
 </head>
 
 	<body leftmargin="0" topmargin="0">
-			<img src="/jk/images/sakura.gif" width="1520px" height="820px" style="position:absolute; top:0px; left:0px; z-index:1">
-			<div style="position:absolute; top:10px; left:10px; z-index:2; width:100%">
+			<img src="/jk/images/sakura.gif" width="100%" height="100%" style="position:absolute; top:0px; left:0px; z-index:1">
+			<div style="position:absolute; top:10px; left:0px; z-index:2; width:100%">
 
 	
 	<div class="body">

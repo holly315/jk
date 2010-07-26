@@ -47,7 +47,32 @@
 				x = ${mapInstance.x}<br>
 				y = ${mapInstance.y}<br>
 				-->
-				<img src="/jk/images/chikeizu.png" align="right" alt="animal" height="200" width="200" border="2" />
+				<table align="right" border="2" bordercolor="#400000" bgcolor="#800000" >
+					<tr>
+						<td><img src="/jk/images/sangaku.jpg" align="right" alt="animal" height="50" width="50" border="0" /></td>
+						<td><img src="/jk/images/sangaku.jpg" align="right" alt="animal" height="50" width="50" border="0" /></td>
+						<td><img src="/jk/images/sougen.png" align="right" alt="animal" height="50" width="50" border="0" /></td>
+						<td><img src="/jk/images/sougen.png" align="right" alt="animal" height="50" width="50" border="0" /></td>
+					</tr>
+					<tr>
+						<td><img src="/jk/images/sangaku.jpg" align="right" alt="animal" height="50" width="50" border="0" /></td>
+						<td><img src="/jk/images/sangaku.jpg" align="right" alt="animal" height="50" width="50" border="0" /></td>
+						<td><img src="/jk/images/sougen.png" align="right" alt="animal" height="50" width="50" border="0" /></td>
+						<td><img src="/jk/images/sougen.png" align="right" alt="animal" height="50" width="50" border="0" /></td>
+					</tr>
+					<tr>
+						<td><img src="/jk/images/mori.jpg" align="right" alt="animal" height="50" width="50" border="0" /></td>
+						<td><img src="/jk/images/mori.jpg" align="right" alt="animal" height="50" width="50" border="0" /></td>
+						<td><img src="/jk/images/kawa.jpg" align="right" alt="animal" height="50" width="50" border="0" /></td>
+						<td><img src="/jk/images/kawa.jpg" align="right" alt="animal" height="50" width="50" border="0" /></td>
+					</tr>
+					<tr>
+						<td><img src="/jk/images/mori.jpg" align="right" alt="animal" height="50" width="50" border="0" /></td>
+						<td><img src="/jk/images/mori.jpg" align="right" alt="animal" height="50" width="50" border="0" /></td>
+						<td><img src="/jk/images/kawa.jpg" align="right" alt="animal" height="50" width="50" border="0" /></td>
+						<td><img src="/jk/images/kawa.jpg" align="right" alt="animal" height="50" width="50" border="0" /></td>
+					</tr>
+				</table>
 		<g:if test="${mypos == '山岳'}">
 			<table bgcolor="sandybrown" border="2">
 		</g:if>

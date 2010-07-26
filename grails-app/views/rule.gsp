@@ -149,6 +149,11 @@
     こうなってしまうと二度と復活できません。新規登録からやり直してください。</br>
    </br>
    </br>
+   <span class="moji">以上で説明は終わりです。<br>
+   									みなさんの健闘を祈ります<br>
+   									がんばってくださいね!!<br></span>
+   <br>
+   <br>
 </div>
             <span class="migi" ><a href="${createLink(uri: '/')}" ><g:message code="default.home.label"/></a></span>
     </body>

@@ -1,9 +1,10 @@
 
 <head>
-<title>管理者用ログインフォーム</title>
+<title>ログインフォーム</title>
 <link rel="stylesheet" href="${resource(dir:'css',file:'main.css')}" />
         <link rel="shortcut icon" href="${resource(dir:'images',file:'favicon.ico')}" type="image/x-icon" />
 <style type='text/css' media='screen'>
+			
         #superpanel{
         	margin-left:0px;
         }
@@ -65,8 +66,7 @@
         </style>
     </head>
     
-    <body>
-    <div id="superpanel">
+     <div id="superpanel">
     <div id="nav">
         <div id='login'>
 		<div class='inner'>

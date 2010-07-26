@@ -17,7 +17,8 @@
 			margin:0;
 			padding:0;
 			background-color:#dcdcdc;
-
+			overflow-y: hidden;
+			overflow-x: hidden;
 			}
 
 			#wrapper{

@@ -16,7 +16,8 @@
 			body{
 			margin:0;
 			padding:0;
-
+			overflow-y: hidden;
+			overflow-x: hidden;
 			}
 
 			#wrapper{
@@ -53,7 +54,7 @@
 			border:10px ridge #CCCCCC;
 			position: relative;
 			text-align:center;
-		    top:50px;
+		    top:30px;
 		    left:220px;
 			border:ridge 5px; 
 			}

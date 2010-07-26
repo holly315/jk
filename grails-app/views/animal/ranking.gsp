@@ -46,6 +46,7 @@
                 <table border="1" bgcolor="white">
                     <thead bgcolor="orange">
                         <tr>
+                            <td>順位</td>
                             <td>名前</td>
                             <td>動物種</td>
                             <td>勝利数</td>
@@ -56,6 +57,12 @@
 					<tbody>
 					<g:each in="${allInstance}" status="i" var="accountInstance">
                         <tr class="${(i % 2) == 0 ? 'odd' : 'even'}">
+            <g:if test="${i < 3}">
+                  <td><font size="5">${i+1}</font></td>
+            </g:if>
+            <g:if test="${i >= 3}">
+                  <td>${i+1}</td>
+            </g:if>
                             <td>${fieldValue(bean: accountInstance, field: "name")}</td>
                             <td>${fieldValue(bean: accountInstance, field: "animal.name")}</td>
                             <td>${fieldValue(bean: accountInstance, field: "won")}</td>

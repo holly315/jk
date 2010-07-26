@@ -1,6 +1,6 @@
 
 <head>
-<meta name='layout' content='main' />
+<meta name='layout' content='top' />
 <title>弱肉強食</title>
 <style type='text/css' media='screen'>
 
@@ -102,12 +102,53 @@
 		    font-weight: bold;
 		    text-decoration: none;
 		}
+			.moji{
+			font-size:20px;
+			text-align:left;
+			color:#fff;
+		}
+		.moji2{
+			font-size:40px;
+			text-align:left;
+			color:red;
+		}
+		.moji3{
+			font-size:100px;
+			color:black;
+			font-weight:bold;	
+		}
 		
+			 .moji5{
+		            font-size:15pt;
+					color:white;
+					position: relative;
+					font-weight: bold;
+					top:-200px;
+					left:800px;
+		        }
+		        
+			body { overflow-y: hidden; }
 	
         </style>
     </head>
     
-    <body>
+    <body leftmargin="0" topmargin="0">
+    <IMG src="/jk/images/sabanna.gif" width="100%" height="100%"
+	style="position:absolute; top:0px; left:0px; z-index:1">
+	<DIV style="position:absolute; top:10px; left:10px; z-index:2">
+	  <div id="spinner" class="spinner" style="display:none;">
+            <img src="${resource(dir:'images',file:'spinner.gif')}" alt="${message(code:'spinner.alt',default:'Loading...')}" />
+        </div>
+        	<center><span class="moji3">弱肉強食</span></center>
+			<div class="moji">
+				<span class="moji2">注意</span><br>
+				ゲームを始めるには右側の新規登録で<br>アカウントを作成してください
+			</div>
+				<span class="moji5">
+				弱肉強食の世界へようこそ!!<br>すぐにアカウントを取得してゲームを始めよう!!<br>詳しい事は遊び方を見てください!!<br>
+				</span>
+
+
     <div id="superpanel">
     <div id="nav">
 		<iframe src="./login/auth" name="authFrom" frameborder="no" scrolling="no" width="260" >
@@ -124,8 +165,8 @@
 // -->
 </script>
 	</div>
-	<div id="pageBody" style="border-style: solid;height: 200px;background-color:black;width:30%">
-            <div id="controllerList" class="dialog" style="width:100%;" >
+	<div id="pageBody" style="border-style: solid;height: 200px;background-color:black;width:30%;" >
+            <div id="controllerList" class="dialog"  style="width:250px;">
                 <h2 style="text-align:center;"><めいんぺーじめにゅ〜></h2>
                 <ul>
                     <li class="biginnerlist" style="text-align:center;"><a href="./account/create">新規登録</a></li>
@@ -135,6 +176,7 @@
             </div>
         </div>
         <div id="manager" style="width:20%;height:10%;">
-        	<a href="../manager/manage.gsp">管理者用メニュー</a>
+        	<a href="./manager/manage.gsp">管理者用メニュー</a>
         </div>
+      </div>
     </body>
