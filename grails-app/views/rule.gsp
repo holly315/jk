@@ -1,18 +1,37 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-        <meta name="layout" content="main" />
         <g:set var="entityName" value="${message(code: 'account.label', default: 'Account')}" />
-        <title><g:message code="default.create.label" args="[entityName]" /></title>
+        <title>遊び方</title>
+		<style TYPE="text/css">
+		<!--
+			.moji{
+				font-size:30;
+				color:red;
+			}
+			.body{
+				text-align:center;
+				font-weight:bold;
+			}
+			
+	
+			.migi{
+				float:right;
+				font-size:20;
+			}
+			.moji2{
+				font-size:30pt;
+				color:black;
+			}
+			
+		-->
+		</style>
     </head>
     <body>
-        <div class="nav">
-            <span class="menuButton"><a class="home" href="${createLink(uri: '/')}"><g:message code="default.home.label"/></a></span>
-        </div>
-        <div class="body">
-        遊び方</br>
-</br>
-ゲームの目的</br>
+            <span class="migi" ><a href="${createLink(uri: '/')}" ><g:message code="default.home.label"/></a></span>
+        <div class="body"><br><br>
+       <span class="moji"> 遊び方</span><br>
+<span class="moji2">ゲームの目的</span></br>
     あなたは動物となり、食料不足のためマップ上に一つしかない餌を巡って骨肉の争いを繰り広げなければなりません。</br>
 </br>
 １　新規登録</br>
@@ -31,7 +50,8 @@
 ２　巣</br>
     ゲームの世界にログインしたあなたは、まず自分の巣で目覚めます。</br>
 </br>
-   ※○○の巣画面サンプル※</br>
+   	<img src="/jk/images/t_home.png" width="700px" height="400px"  >
+</br>
 </br>
     現在のあなたのHPやストックしている餌の数などを見ることができます。</br>
     それでは外へ出ましょう。そこが戦場です。</br>
@@ -42,7 +62,8 @@
     巣から一歩でも出ると、そこは広大な自然のコロシアム。</br>
     あなたはここで餌を探し集め、時には他の動物との激しい闘争を繰り広げます。</br>
 </br>
-    ※マップ画面サンプル※</br>
+	<img src="/jk/images/t_map.png"  width="700px" height="400px" >
+   	</br>
    </br>
     画面右上に全体マップがあります。</br>
    </br>
@@ -69,19 +90,20 @@
 ４　戦闘</br>
     既に他のプレイヤーがいるマスに移動しようとしたり、逆に自分のいるマスに他のプレイヤーが入ってきた場合、戦闘に突入します。</br>
    </br>
-    ※遭遇画面サンプル※</br>
+    <img src="/jk/images/t_encount.png"  width="700px" height="400px"  >
+   	</br>
    </br>
     厳しい野生の中では逃げることは許されません。</br>
-    画面下部に佇む戦うボタンが、あなたを闘争へといざなうでしょう。</br>
+    画面上部に佇む「勝負!」ボタンが、あなたを闘争へといざなうでしょう。</br>
     お互いの体力と相性を元に勝敗が決まります。</br>
     相性については以下の表を参考にしてください。</br>
    </br>
     有利ーーー不利</br>
     ◎○△ー▼×※</br>
    </br>
-   <table>
+   <table border=1 align="center">
    <tr>
-    <td></td><td>鹿</td><td>兎</td><td>虎</td><td>熊</td><td>猫</td>
+    <th></th><th>鹿</th><th>兎</th><th>虎</th><th>熊</th><th>猫</th>
    </tr>
    <tr>
     <td>鹿</td><td>＼</td><td>ー</td><td>▼</td><td>△</td><td>ー</td>
@@ -98,31 +120,36 @@
    <tr>
     <td>猫</td><td>ー</td><td>◎</td><td>×</td><td>×</td><td>＼</td>
    </tr>
-   </table>
+ </table>
    </br>
    </br>
+   この相性とは別に発見したほうが有利な状況となります。<br>
     戦いは一瞬で決まり、次の瞬間には結果のみが残ります。</br>
     野生のおきてに従い、勝者は敗者から餌をひとつ奪い取ることができます。</br>
    </br>
-    ※勝利画面サンプル※</br>
+    <img src="/jk/images/t_win.png" width="700px" height="400px" >
+   	</br>
    </br>
     敗れた動物は無様にも餌を奪われた揚句巣に逃げ帰る羽目になってしまいます。</br>
    </br>
-    ※敗戦画面サンプル※</br>
+    <img src="/jk/images/t_lose.png"  width="700px" height="400px"  >
+   	</br>
    </br>
     引き分けの場合はお互いの餌を一つずつ失います。</br>
    </br>
-    ※引き分け画面サンプル※</br>
+    <img src="/jk/images/t_draw.png"  width="700px" height="400px"  >
+   	</br>
    </br>
     餌のストックがない状態で負けた場合は、あなた自身が餌になり果てます。</br>
    </br>
-    ※死亡画面サンプル※</br>
+    <img src="/jk/images/t_dead.png"  width="700px" height="400px"  >
+   	</br>
    </br>
     その時点でGAMEOVERとなり、アカウントが削除されます。</br>
     こうなってしまうと二度と復活できません。新規登録からやり直してください。</br>
    </br>
    </br>
-    ゲーム中に１時間操作がない場合、強制的に巣に戻されます。</br>
-        </div>
+</div>
+            <span class="migi" ><a href="${createLink(uri: '/')}" ><g:message code="default.home.label"/></a></span>
     </body>
 </html>

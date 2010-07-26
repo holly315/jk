@@ -17,6 +17,9 @@ class MapController {
     
     def home = {
         def accountInstance = Account.get(params.id)
+			if(!accountInstance.deadflg){
+	        redirect(action: "gameover" )
+			}
         if (!accountInstance) {
             flash.message = "${message(code: 'default.not.found.message', args: [message(code: 'account.label', default: 'Account'), params.id])}"
             redirect(action: "index")
@@ -46,6 +49,9 @@ class MapController {
     
     def map = {
         def accountInstance = Account.get(params.id)
+			if(!accountInstance.deadflg){
+	        redirect(action: "gameover" )
+			}
         if (!accountInstance) {
             flash.message = "${message(code: 'default.not.found.message', args: [message(code: 'account.label', default: 'Account'), params.id])}"
             redirect(action: "index")
@@ -138,6 +144,12 @@ class MapController {
             flash.message = "${message(code: 'default.not.found.message', args: [message(code: 'account.label', default: 'Map'), params.id])}"
             redirect(action: "home")
         }
+		if(!accountInstance.deadflg){
+        redirect(action: "gameover" )
+		}else if(mapInstance.x == 0 || mapInstance.y ==0){
+			redirect(action: "home",id:mapInstance.objectId)
+		
+		}else{
 
 
         def date = new Date().toString()
@@ -172,6 +184,7 @@ class MapController {
             accountInstance.save(flush: true)
             redirect(action: "map", id: params.id)
         }
+		}	
     }
 
     def eat = {
@@ -217,7 +230,13 @@ class MapController {
         }
     
     def encount = {
+                 def mapInstance = Map.findByObjectId(params.myId)
+		         def mapInstance2 = Map.findByObjectId(params.enemyId)
                 
+			        if (!(mapInstance && mapInstance2) ) {
+			            flash.message = "${message(code: 'default.not.found.message', args: [message(code: 'account.label', default: 'Map'), params.id])}"
+			            redirect(action: "home")
+			        }
            
                 def date = new Date().toString()
                 def accountInstance = Account.get(params.myId)
@@ -318,6 +337,11 @@ class MapController {
 
                                 hako = accountInstance.hp + hande + 10
                                     if(hako == accountInstance2.hp){
+ 										mapInstance.x = 0
+										mapInstance.y = 0
+ 										mapInstance2.x = 0
+ 										mapInstance2.y = 0
+ 										
                                         accountInstance.lost++
                                         accountInstance2.lost++
 										accountInstance.log += "<font color='blue'>" + date + "|${accountInstance2.name}と引き分けました<br></font>"
@@ -336,6 +360,8 @@ class MapController {
                                     }else if(hako > accountInstance2.hp){
                                         accountInstance.won++
                                         accountInstance2.lost++
+										mapInstance2.x = 0
+	 									mapInstance2.y = 0
 										accountInstance.log += "<font color='red'>" + date + "|${accountInstance2.name}との戦闘に勝利しました<br></font>"
 										accountInstance2.log += "<font color='blue'>" + date + "|${accountInstance.name}との戦闘に敗北しました<br></font>"
                                             if(accountInstance.esa !=3){
@@ -347,6 +373,8 @@ class MapController {
                                                 accountInstance2.deadflg = false
                                                 }
                                     }else if(hako < accountInstance2.hp){
+										mapInstance.x = 0
+										mapInstance.y = 0
                                         accountInstance2.won++
                                         accountInstance.lost++
 										accountInstance.log += "<font color='blue'>" + date + "|${accountInstance2.name}との戦闘に敗北しました<br></font>"
@@ -365,11 +393,11 @@ class MapController {
 
 
                                         if(params.int('hande') >= 0){
-                                                hantei1 = accountInstance.hp + hande + 10
+                                                hantei1 = accountInstance.hp + hande +10
                                                 hantei2 = accountInstance2.hp
                                         }else{
                                                 hantei2 = accountInstance2.hp - hande
-                                                hantei1 = accountInstance.hp + 10
+                                                hantei1 = accountInstance.hp +10
                                         }    
 
                                         if(hantei1 == hantei2){
@@ -486,4 +514,8 @@ class MapController {
             redirect(action: "list")
         }
     }
+
+	def gameover = {
+		render(view: "gameover")
+	}
 }

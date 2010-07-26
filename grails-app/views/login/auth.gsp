@@ -5,7 +5,7 @@
         <link rel="shortcut icon" href="${resource(dir:'images',file:'favicon.ico')}" type="image/x-icon" />
 <style type='text/css' media='screen'>
         #superpanel{
-        	margin-left:30px;
+        	margin-left:0px;
         }
         
         #nav {

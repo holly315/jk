@@ -1,13 +1,60 @@
 <head>
-	<meta name="layout" content="main" />
 	<title>新規登録</title>
+	<style TYPE="text/css">
+		<!--
+			td, th {
+				color: red;
+				font-size: 200%;
+ 				font-family: "ＭＳ ゴシック";
+ 				border: 1px solid gray;
+			}
+		
+			div{
+				width:300px;
+				height:300px;
+			}
+			
+			.nav{
+				position: relative;
+				top:0px;
+				left:500px;
+				font-size:30px;
+			}
+			
+			.body{
+				position:relative;
+				top:-280px;
+				left:500px;
+			}
+			
+						
+			.buttons{
+				position:relative;
+				top:-50px;
+				left:100px;
+				height:30%;
+			}
+			
+				input, select, textarea {
+				background-color:#FCFCFC;
+				border:5px ridge #CCCCCC;
+				font:20px verdana,arial,helvetica,sans-serif;
+				margin:2px 0;
+				padding:2px 4px;
+				background-color: #ffffff;         /* 背景色 */
+			}
+
+		-->
+	</style>
 </head>
 
-<body>
+<body leftmargin="0" topmargin="0">
+			<img src="/jk/images/sakura.gif" width="1520px" height="820px" style="position:absolute; top:0px; left:0px; z-index:1">
+			<div style="position:absolute; top:10px; left:10px; z-index:2; width:100%">
 
 	<div class="nav">
-		<span class="menuButton"><a class="home" href="${createLinkTo(dir:'')}">Home</a></span>
-	</div>
+		<span class="menuButton"><a class="home" href="${createLinkTo(dir:'')}">メインページへ戻る</a></span>
+	</div> 
 
 	<div class="body">
 		<h1>新規登録</h1>
@@ -21,11 +68,11 @@
 		</g:hasErrors>
 		<g:form action="save">
 			<div class="dialog">
-				<table>
+				<table >
 				<tbody>
 
 							<tr class="prop">
-                                <td valign="top" class="name">
+                                <td nowrap valign="top" class="name">
                                     <label for="name"><g:message code="account.name.label" default="Name" /></label>
                                 </td>
                                 <td valign="top" class="value ${hasErrors(bean: account, field: 'name', 'errors')}">
@@ -46,6 +93,7 @@
                                 <td valign="top" class="name">
                                     <label for="passwd"><g:message code="account.passwd.label" default="Passwd" /></label>
                                 </td>
+
                                 <td valign="top" class="value ${hasErrors(bean: account, field: 'passwd', 'errors')}">
                                     <g:passwordField name="passwd" maxlength="40" value="${account?.passwd}" />
                                 </td>
@@ -70,7 +118,7 @@
                                     <label for="animal"><g:message code="account.animal.label" default="Animal" /></label>
                                 </td>
                                 <td valign="top" class="value ${hasErrors(bean: account, field: 'animal', 'errors')}">
-                                    <g:select name="animal.id" from="${jk.Animal.list()}" optionKey="id" value="${account?.animal?.id}"  />
+                                    <g:select name="animal.id" from="${jk.Animal.list()}" optionValue="name" optionKey="id" value="${account?.animal?.id}" noSelection="[' ':'選択してください']"  />
                                 </td>
                             </tr>
                         
@@ -91,6 +139,6 @@
 			</div>
 
 		</g:form>
-
+</div>
 	</div>
 </body>

@@ -16,12 +16,19 @@
 			body{
 			margin:0;
 			padding:0;
+					background-color:#000000;
+					
 			}
 
 			#wrapper{
 			width:100%;
 			margin:0 auto 0 auto;
 			padding:0;
+			background-color:#000000;
+			background-image: url("/jk/images/end.jpg"); /* 画像へのパス */
+			background-repeat : no-repeat;
+			background-attachment : fixed;
+			background-position : 0% 0%;
 			}
 
 			#header{
@@ -41,6 +48,11 @@
 			width:100%;
 			margin:0;
 			padding:0;
+			background-color:#000000;
+				background-image: url("/jk/images/end.jpg"); /* 画像へのパス */
+				background-repeat : no-repeat;
+				background-attachment : fixed;
+				background-position : 0% 0%;
 			}
 
 			#footer{
@@ -119,54 +131,17 @@
 			-->
 			</style>
 </head>
-	<body leftmargin="0" topmargin="0">
-			<img src="/jk/images/end.jpg" width="1520px" height="970px" style="position:absolute; top:0px; left:0px; z-index:1">
-			<div style="position:absolute; top:10px; left:10px; z-index:2; width:100%">
-<%
-int hande1 = 0
-int hande2 = 0
-if(params.int('hande') >= 0){
-	
-		hande1 =  params.int('hande')
-		}else{
-		hande2 =  params.int('hande') * (-1)	
-		}
+<BODY leftmargin="0" topmargin="0">
+<IMG src="/jk/images/end.jpg" width="100%" height="100%"
+style="position:absolute; top:0px; left:0px; z-index:1">
+<DIV style="position:absolute; top:10px; left:10px; z-index:2">
 
-%>
-	<div id="wrapper">
 	<g:form action="index" controller="logout" method="post" >
-		<div id="header">
-			<span class="moji2">（自分）${accountInstance.name} 対 （相手）${accountInstance2.name}</span><br>
-			<span class="moji2">（自分）HP${params.hantei1}<font size="5" color="red">+10+${hande1}</font><br> 対<br>（相手）HP${params.hantei2}
-			<font size="5" color="red">+${hande2}</font></span>
-		</div>
-		<div id="contents">	
-				<div id="hidari">
-						<span class="moji" style="font-size:50;font-weight:bold;color:blue;">LOSER</span><br>
-						<font size="5" color="white">（自分）${accountInstance.name}</font><br>
-						<img src="/jk/images/${accountInstance.animal.img}" alt="Grails" border="10" ridge #0000ff; /><br>
-						<span class="moji">（自分）HP${params.hantei1}<font color="red">+${hande1}</font><font color="red">+10</font></span><br>
-				</div>
-
-				<div id="naka">
-						<span class="moji" style="font-size:100;font-weight:bold;">あなたの<br>負けです</span><br>
-				</div>	
-
-				<div id="migi">
-						<span class="moji" style="font-size:50;font-weight:bold;color:red;">WINNER</span><br>
-						<font size="5" color="white">（相手）${accountInstance2.name}</font><br>
-						<img src="/jk/images/${accountInstance2.animal.img}" alt="Grails" border="10" ridge; /><br>
-						<span class="moji">（相手）HP${params.hantei2}<font size="5" color="red">+${hande2}</font></span><br>
-				</div>
-		<div id="footer">
+	
 				<p>あなたは力つきました。残念ですがここでゲーム終了です<br>お疲れさまでした。また遊んでね!!</p>
-				<div id="owari">
 			 		<span class="button"><g:submitButton name="create" value="${message(code: 'default.button.dead.label', default: 'Create')}" /></span>
 					</g:form>
 
-				</div>
-		</div>
-	</div>
-</div>
+	
 </body>
 </html>
