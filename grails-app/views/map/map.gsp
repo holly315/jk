@@ -11,19 +11,19 @@
 	<body leftmargin="0" topmargin="0">
 		<g:if test="${mypos == '山岳'}">
 			<img src="/jk/images/sangaku.jpg" width="100%" height="100%" style="position:absolute; top:0px; left:0px; z-index:1">
-			<div style="position:absolute; top:10px; left:10px; z-index:2; width:100%">
+			<div style="position:absolute; top:10px; left:10px; z-index:2; width:98%">
 		</g:if>
 		<g:if test="${mypos == '森林'}">
 			<img src="/jk/images/mori.jpg" width="100%" height="100%" style="position:absolute; top:0px; left:0px; z-index:1">
-			<div style="position:absolute; top:10px; left:10px; z-index:2; width:100%">
+			<div style="position:absolute; top:10px; left:10px; z-index:2; width:98%">
 		</g:if>
 		<g:if test="${mypos == '草原'}">
 			<img src="/jk/images/sougen.png" width="100%" height="100%" style="position:absolute; top:0px; left:0px; z-index:1">
-			<div style="position:absolute; top:10px; left:10px; z-index:2; width:100%">
+			<div style="position:absolute; top:10px; left:10px; z-index:2; width:98%">
 		</g:if>
 		<g:if test="${mypos == '川原'}">
 			<img src="/jk/images/kawa.jpg" width="100%" height="100%" style="position:absolute; top:0px; left:0px; z-index:1">
-			<div style="position:absolute; top:10px; left:10px; z-index:2; width:100%">
+			<div style="position:absolute; top:10px; left:10px; z-index:2; width:98%">
 		</g:if>
 			<div class="body">
 				<g:if test="${flash.message}">

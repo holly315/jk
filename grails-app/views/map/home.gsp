@@ -8,7 +8,7 @@
     </head>
 	<body leftmargin="0" topmargin="0">
 		<img src="/jk/images/su.jpg" width="100%" height="100%" style="position:absolute; top:0px; left:0px; z-index:1">
-		<div style="position:absolute; top:10px; left:10px; z-index:2; width:100%">
+		<div style="position:absolute; top:10px; left:10px; z-index:2; width:98%">
 	<body bgcolor="saddlebrown">
 	<table bgcolor="saddlebrown" border="2">
 		<td>

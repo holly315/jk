@@ -151,7 +151,7 @@
 
     <div id="superpanel">
     <div id="nav">
-		<iframe src="./login/auth" name="authFrom" frameborder="no" scrolling="no" width="260" >
+		<iframe src="./login/auth" name="authFrom" frameborder="no" scrolling="no" width="260" height="130" >
 			インラインフレームを使用しています。対応ブラウザを使ってください。</br>
 			将来的にインラインフレームが廃止された場合は、今のアドレスの末尾に /login/auth をつけることで対処してください
 		</iframe>

@@ -10,7 +10,7 @@
 		<img src="/jk/images/ranking.jpg" width="100%" height="100%" style="position:fixed; top:0px; left:0px; z-index:1">
 		<div style="position:absolute; top:10px; left:10px; z-index:2; width:90%">
 			<span style="background-color:#f8f8f8; font-size:24px; text-align:left; float:left; border: 2px solid #808000">
-			${title}
+			　${title}　
 			</span>
 			<br><br>
 			<form method="post" action="../">
@@ -71,7 +71,8 @@
                         </tr>
                     </g:each>
                     </tbody>
-                </table>
+				</table>
+				<br>
 			</div>
         </div>
     </body>
